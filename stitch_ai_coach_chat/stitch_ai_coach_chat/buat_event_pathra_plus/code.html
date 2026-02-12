@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#258cf4",
+                        "primary-dark": "#1a2e44",
+                        "accent-gold": "#d4af37",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .gold-shimmer {
+            background: linear-gradient(45deg, #d4af37 0%, #f1d592 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .navy-premium {
+            background: linear-gradient(135deg, #101922 0%, #1e293b 100%);
+        }
+        .form-input-focus:focus {
+            border-color: #258cf4;
+            ring-color: #258cf4;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen">
+<!-- Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-xl">spa</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight">PATHRA</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Komunitas</a>
+<div class="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-icons text-primary text-sm">person</span>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto py-10 px-6">
+<!-- Header Banner -->
+<div class="navy-premium rounded-xl p-8 mb-8 relative overflow-hidden shadow-xl border-b-4 border-accent-gold">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-icons text-[120px]">workspace_premium</span>
+</div>
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-gold/20 border border-accent-gold/30 mb-4">
+<span class="material-icons text-accent-gold text-xs">stars</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-accent-gold">Pathra Plus Exclusive</span>
+</div>
+<h1 class="text-3xl font-extrabold text-white mb-2">Buat Event Komunitas</h1>
+<p class="text-slate-400 max-w-lg">Ciptakan ruang bagi anggota komunitas untuk bertumbuh, berlatih, dan sehat bersama melalui event eksklusif Anda.</p>
+</div>
+</div>
+<!-- Event Creation Form -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-primary/10 p-8">
+<form class="space-y-8">
+<!-- Section 1: Dasar -->
+<div class="space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">1</span>
+<h2 class="text-lg font-bold">Detail Event</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-2">
+<label class="block text-sm font-semibold mb-2 text-slate-600 dark:text-slate-400">Nama Event</label>
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Contoh: Yoga Pagi di Taman Kota" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-600 dark:text-slate-400">Jenis Aktivitas</label>
+<div class="relative">
+<select class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent appearance-none focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
+<option>Yoga &amp; Mindfulness</option>
+<option>Running Group</option>
+<option>Weight Training</option>
+<option>Meditation</option>
+<option>Nutrition Workshop</option>
+</select>
+<span class="material-icons absolute right-3 top-3.5 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-600 dark:text-slate-400">Kapasitas Peserta</label>
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Maks. 50" type="number"/>
+</div>
+</div>
+</div>
+<hr class="border-slate-100 dark:border-slate-800"/>
+<!-- Section 2: Waktu & Lokasi -->
+<div class="space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">2</span>
+<h2 class="text-lg font-bold">Logistik</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-600 dark:text-slate-400">Tanggal</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="date"/>
+<span class="material-icons absolute right-3 top-3.5 text-slate-400 pointer-events-none">calendar_today</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-600 dark:text-slate-400">Waktu Mulai</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="time"/>
+<span class="material-icons absolute right-3 top-3.5 text-slate-400 pointer-events-none">schedule</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-600 dark:text-slate-400">Lokasi</label>
+<div class="flex gap-2 mb-3">
+<input class="flex-1 px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Cari alamat atau nama tempat..." type="text"/>
+<button class="px-4 py-3 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 transition-colors" type="button">
+<span class="material-icons text-slate-600 dark:text-slate-400">my_location</span>
+</button>
+</div>
+<div class="h-48 rounded-lg overflow-hidden bg-slate-200 relative">
+<img class="w-full h-full object-cover" data-alt="Minimalist map showing a city district" data-location="Jakarta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl8qVaaB3mnT_fQkbA1DuFaeHAa9RMQ9zVtOZtjTwBmyKExgCPvBxaOBSE5oDkXRCo67orceHSbW_OakEFduSdg7kZNCnPtjW9uqWWkUpZ0deJLqJp__s_Ye9LVOk27zkY_OZRZNncfECeXjA490i-jNMhBXh_iZTrN9AYswDJJP-qdY5V5NzhOmiEKpJ22cTza-9efFfwq9lcrF0EB3QCo-V0QMES81J-tz5ZDEhF5S4UBgb-BBt9qsGoY_kTw4gFrujiBSa7SwE"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-icons text-primary text-4xl drop-shadow-md">location_on</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-slate-100 dark:border-slate-800"/>
+<!-- Section 3: Opsi Komunitas -->
+<div class="space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">3</span>
+<h2 class="text-lg font-bold">Privasi &amp; Opsi Komunitas</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="relative flex flex-col p-5 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer hover:bg-primary/10 transition-all">
+<input checked="" class="absolute top-4 right-4 text-primary focus:ring-primary" name="privacy" type="radio" value="public"/>
+<span class="material-icons text-primary mb-3">public</span>
+<span class="font-bold block mb-1">Event Publik</span>
+<span class="text-xs text-slate-500">Dapat ditemukan oleh seluruh pengguna Pathra Plus di sekitar Anda.</span>
+</label>
+<label class="relative flex flex-col p-5 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-transparent cursor-pointer hover:border-primary/50 transition-all">
+<input class="absolute top-4 right-4 text-primary focus:ring-primary" name="privacy" type="radio" value="private"/>
+<span class="material-icons text-slate-400 mb-3">lock</span>
+<span class="font-bold block mb-1">Event Privat</span>
+<span class="text-xs text-slate-500">Hanya dapat diikuti melalui link undangan eksklusif yang Anda bagikan.</span>
+</label>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-6">
+<button class="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5 active:translate-y-0" type="submit">
+<span class="material-icons">rocket_launch</span>
+                        Publikasikan Event
+                    </button>
+<p class="text-center text-xs text-slate-400 mt-4">Dengan mempublikasikan, Anda menyetujui Panduan Komunitas Pathra Plus.</p>
+</div>
+</form>
+</div>
+</main>
+<!-- Overlay: Upgrade to Pathra Plus (Hidden by default, shown for non-premium) -->
+<!-- Remove 'hidden' class to visualize -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/40 backdrop-blur-md px-6">
+<div class="max-w-md w-full bg-white dark:bg-slate-900 rounded-2xl shadow-2xl overflow-hidden border border-accent-gold/30">
+<div class="navy-premium p-10 text-center relative">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" data-alt="Abstract blue and gold silk pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzRwwCiWYX736RVTYLuuRJc51fFr1HculO6S7FTRiZ2EXvxZF7ykkV8GXWjL_vKd04k-bNq-_0gh7c6uJWOUYyxQozZ56iwKr1feSisSyCr6BWUHkhlKQPrCSoF6LgwMzdY_UwV1ij9xY9W9kTLbJOZkRmu5hfi6Z3bYX4HaHz-_k2REQzJ2vOxNyMn5mkBtcblhDLvgRLmXvn0wI2JTCrmps9TJQd9pCyrt3tEPwf_BvciGZpD8ZN2zPSBIRmd_eCFATayWVA5xg"/>
+</div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-accent-gold rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg shadow-accent-gold/20">
+<span class="material-icons text-white text-3xl">workspace_premium</span>
+</div>
+<h2 class="text-2xl font-extrabold text-white mb-2">Buka Potensi Komunitas</h2>
+<p class="text-slate-300 text-sm">Upgrade ke Pathra Plus untuk membuat event eksklusif dan terhubung dengan komunitas kesehatan premium.</p>
+</div>
+</div>
+<div class="p-8 space-y-4">
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-3">
+<span class="material-icons text-accent-gold text-lg">check_circle</span>
+<span class="text-sm font-medium">Buat Event Tak Terbatas</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-icons text-accent-gold text-lg">check_circle</span>
+<span class="text-sm font-medium">Analisis Partisipan AI</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-icons text-accent-gold text-lg">check_circle</span>
+<span class="text-sm font-medium">Lencana Profil Eksklusif</span>
+</div>
+</div>
+<button class="w-full py-4 bg-accent-gold hover:bg-accent-gold/90 text-white font-bold rounded-xl transition-all shadow-lg shadow-accent-gold/20">
+                    Mulai Pathra Plus — Rp 49k/bln
+                </button>
+<button class="w-full py-2 text-slate-400 text-sm font-medium hover:text-slate-600 transition-colors">
+                    Mungkin Nanti
+                </button>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="max-w-4xl mx-auto py-12 px-6 text-center">
+<div class="flex items-center justify-center gap-2 mb-4 opacity-50">
+<div class="w-6 h-6 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-[10px]">spa</span>
+</div>
+<span class="text-sm font-bold tracking-tight">PATHRA WELLNESS</span>
+</div>
+<p class="text-xs text-slate-500">© 2024 Pathra. All rights reserved. Member of Premium Wellness Global.</p>
+</footer>
+</body></html>

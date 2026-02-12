@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d473",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "neutral-soft": "#e9edeb",
+                        "text-main": "#2d3a33",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>PATHRA | Komunitas Wellness</title>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-background-light min-h-screen font-display">
+<!-- Header / Navigation -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-outlined text-white text-sm">spa</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary">PATHRA</span>
+</div>
+<div class="hidden md:flex flex-1 max-w-md mx-8">
+<div class="relative w-full">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons-outlined text-gray-400 text-sm">search</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-2 border-none bg-primary/5 dark:bg-primary/10 rounded-full text-sm placeholder-gray-500 focus:ring-2 focus:ring-primary/30" placeholder="Cari inspirasi wellness..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-gray-500 hover:text-primary transition-colors">
+<span class="material-icons-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-4 border-l border-primary/10">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-semibold">Budi Santoso</p>
+<p class="text-[10px] text-primary">Level 12 Sehat</p>
+</div>
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20" data-alt="User profile portrait of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn9wpEEbcRPdi1OEV-FPzrrHydCwfnQApf4GTiiTGJwDF5dChJT0tY-s0F-ClK05n1w1oL6hGTdmyaUWYAPtIjJKZ9CERkCn7VjTKbtw2X-b8Fu7odTYhtUIHqo4lSxahu1Xn9YYW3ZbZfQWeLGw3TBCHBvc7X2dAX8xdtCC0Z8w26j1F75IAJWBJR39U2raSFcV1bMPqRdARkRX0uEpy-XejgDsuHJezS-MhyXmZGZKPHSIdHmw8HEiZIwu79lAKoRljdN04Sbw0"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Layout -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Sidebar: Profile Summary & Quick Stats -->
+<aside class="hidden lg:block lg:col-span-3 space-y-6">
+<div class="bg-white dark:bg-gray-900/50 p-6 rounded-xl border border-primary/5 shadow-sm">
+<h3 class="font-bold text-lg mb-4">Inspirasi Hari Ini</h3>
+<div class="relative overflow-hidden rounded-lg group">
+<img class="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Woman meditating in a peaceful sunlit room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD19T8fLvNctp0_Tp-iwY0DGIQBcRJhDgx96hytNkSTOpKx5x7zHW4RGfJgeA6CU7nBYHS6xdkFLp6UAED60Tt8Bej9r9Fwkz__W1w1amwz1PpGiTnMwtqAthCtOnM-DjSKOL9Nj2NkYUr5mBybdKOx9y_IuDTiXOUlayuEcfawdWLMxksRNko8VZGqWYH6CaoH1lthgF8b4_OK2OHVYcgx7lXX9l26Gh_x-zZbFN0_qBienQpzK_aAfAVkY8STl7dgPKmALEmakjg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<p class="text-white text-xs italic">"Kesehatan bukan hanya tentang apa yang kamu makan, tapi apa yang kamu pikirkan."</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900/50 p-6 rounded-xl border border-primary/5 shadow-sm">
+<h3 class="font-bold text-sm uppercase tracking-wider text-gray-400 mb-4">Teman Wellness</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="Portrait of a friendly woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSdVmreKndgyLGpmQ44RZbjbAcwq4_Id-vgA9e8Kx27GNOLvgwPOnvskRRr0_YK3TucBsCgAFZiTe8O26r9HssMeczT05wq9drQBfjoe5EZQC20rM_6UJxMjPpWcegF43i5KU217nN2ym3aSiS8QhrE1OWxh4YXbIk6Rcp9_tl3WSxuWjMW964qF0g4KFf-52H8lMZmF6gOJxWO60qdGS39wt9jQ-Y6T-ULZJm3b1ub1pExjhFTKidky1jtVzW1NHBfKKT-V4PBPM"/>
+<div class="flex-1">
+<p class="text-xs font-semibold">Siti Aminah</p>
+<p class="text-[10px] text-gray-500">Yoga enthusiast</p>
+</div>
+<button class="text-primary hover:bg-primary/10 p-1 rounded-full"><span class="material-icons-outlined text-sm">add</span></button>
+</div>
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="Portrait of a young man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_IW500BGWb6lThXFI-asmPaWB5CA0lhd787uUQKLwpLulQ4fUqk3sqVBOF11cN6BGKWUFk8GJod7QzHhh30nIObdXzV6fHnk34PjUdxmO2PrPoRctYIMdjuCT1Hmoh86lhqc8ui2FEZb57cGGZ43LXCujegbGgo8oVMgNMtlcy3r-WE3r42v6A4QeDMt3PNH957YmAB_BlJP8kVVpLFSYaeEYayhraazey96sbNVqvLNsBikXooqkCCLG8IYRo2iXl6Xjex4bjHo"/>
+<div class="flex-1">
+<p class="text-xs font-semibold">Reza Wijaya</p>
+<p class="text-[10px] text-gray-500">Vegan Chef</p>
+</div>
+<button class="text-primary hover:bg-primary/10 p-1 rounded-full"><span class="material-icons-outlined text-sm">add</span></button>
+</div>
+</div>
+<button class="w-full mt-6 text-xs text-primary font-medium hover:underline">Lihat Semua Komunitas</button>
+</div>
+</aside>
+<!-- Middle Column: Main Tabs & Feed -->
+<section class="lg:col-span-6 space-y-6">
+<!-- Tab Navigation -->
+<div class="bg-white dark:bg-gray-900/50 p-1.5 rounded-xl border border-primary/5 shadow-sm flex">
+<button class="flex-1 py-2.5 px-4 rounded-lg bg-primary text-white font-medium text-sm transition-all flex items-center justify-center gap-2">
+<span class="material-icons-outlined text-sm">rss_feed</span> Feed
+                    </button>
+<button class="flex-1 py-2.5 px-4 rounded-lg hover:bg-primary/10 text-gray-500 font-medium text-sm transition-all flex items-center justify-center gap-2">
+<span class="material-icons-outlined text-sm">calendar_today</span> Event
+                    </button>
+<button class="flex-1 py-2.5 px-4 rounded-lg hover:bg-primary/10 text-gray-500 font-medium text-sm transition-all flex items-center justify-center gap-2">
+<span class="material-icons-outlined text-sm">emoji_events</span> Tantangan
+                    </button>
+</div>
+<!-- Feed Content -->
+<div class="space-y-6">
+<!-- Feed Post 1 -->
+<article class="bg-white dark:bg-gray-900/50 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="p-4 flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Woman with short hair smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE-r9QAWz-ib8reHc6i6tjGRd4xTU6n_wz5C5M7VFFuIHjQywHc0vrxhn6kRb4cGexYD2flZlgwZsXJ-RXlESfD38zNb8jatCSj9-aVMJg2m2yfB1OAdLfZ7eJnAgOpCD0yg_zOK62wKgPD1W_z_EJTlXmdlg9QCZ5dAx9nCOZNaSt0K3_BtkuO1VWPYRllsZmJAamdbTNevJkCVP_gqXfjzyLMqxaEM_2k65d4MPTpA7mk69efUQQfeIM9LjNHkshwa9adrmVU5o"/>
+<div>
+<h4 class="text-sm font-bold">Lina Marlina</h4>
+<p class="text-[10px] text-gray-400">2 jam yang lalu • Jakarta</p>
+</div>
+<button class="ml-auto text-gray-400"><span class="material-icons-outlined">more_horiz</span></button>
+</div>
+<div class="px-4 pb-3">
+<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                                Selesai meditasi pagi 15 menit. Rasanya jauh lebih tenang untuk memulai hari kerja yang sibuk. Jangan lupa bernapas dalam hari ini! 🧘‍♀️🌿
+                            </p>
+</div>
+<img class="w-full aspect-video object-cover" data-alt="Serene morning view of a yoga mat near a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2emCbCOspwSYQzpKkIxPMGSA_NdqwPhp9aBWBDEJ9sLzdEanZpLrbWmCmlcoZ3GJ8aa_eWCfncCFoxSrIHqvQPk4pbEEd0hCWwAE-DwM7X-33-snKuCUK4Q7Hh7hASQOeCORU0T4BlJc_T9CnhzhcLTJZkfawtd94tILtf7OGK0QOaLSQxiQ0NdLbYXXXzrBMP3TEnjBk9R9tjOzTVnNvLh3ntl5NIa40XPZNi7lPUr_DBau4hUH5eNJu4gChz-TEBcx8mM700Ps"/>
+<div class="p-4 flex items-center gap-6">
+<button class="flex items-center gap-2 text-primary group">
+<span class="material-icons-outlined text-lg group-hover:scale-110 transition-transform">favorite_border</span>
+<span class="text-xs font-medium">24 Suka</span>
+</button>
+<button class="flex items-center gap-2 text-gray-500 group">
+<span class="material-icons-outlined text-lg group-hover:scale-110 transition-transform">chat_bubble_outline</span>
+<span class="text-xs font-medium">8 Komentar</span>
+</button>
+<button class="flex items-center gap-2 text-gray-500 ml-auto">
+<span class="material-icons-outlined text-lg">share</span>
+</button>
+</div>
+</article>
+<!-- Feed Post 2 -->
+<article class="bg-white dark:bg-gray-900/50 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="p-4 flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Man with glasses smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIQmRCJdoMWd9imT0I62xoowLVJkxX4sjlLHYcO2H7J6bg9VCl6nKO17ynJgYX-blxrwTWgsoQth4b1Djas_NjdaRWO12if22JqOx-FNTMQfamukaRiNEejkyV9hVTuz9MNZ7BZV5qRcBI9TtMvxRtpbPq-LCNi9afYZWSBE_mdDTneRfkyaYENJDZTTMmzpdOQfM4pmXVB8mWbRnUmj8Q3epysJKMuVl2Z2rG8-HxYWGWzQ47PiFdVm8m02O7BruOrIF6lcddVCM"/>
+<div>
+<h4 class="text-sm font-bold">Ahmad Fauzi</h4>
+<p class="text-[10px] text-gray-400">5 jam yang lalu • Bandung</p>
+</div>
+<button class="ml-auto text-gray-400"><span class="material-icons-outlined">more_horiz</span></button>
+</div>
+<div class="px-4 pb-3">
+<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                                Mencoba resep "Green Glow Smoothie" dari PATHRA. Rasanya segar banget dan bikin berenergi! 🍏🥝
+                            </p>
+</div>
+<div class="p-4 flex items-center gap-6">
+<button class="flex items-center gap-2 text-primary group">
+<span class="material-icons-outlined text-lg group-hover:scale-110 transition-transform">favorite</span>
+<span class="text-xs font-medium">42 Suka</span>
+</button>
+<button class="flex items-center gap-2 text-gray-500 group">
+<span class="material-icons-outlined text-lg group-hover:scale-110 transition-transform">chat_bubble_outline</span>
+<span class="text-xs font-medium">12 Komentar</span>
+</button>
+<button class="flex items-center gap-2 text-gray-500 ml-auto">
+<span class="material-icons-outlined text-lg">share</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Right Sidebar: Events & Challenges -->
+<aside class="hidden lg:block lg:col-span-3 space-y-6">
+<!-- Upcoming Events -->
+<div class="bg-white dark:bg-gray-900/50 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-sm">Event Terdekat</h3>
+<span class="text-[10px] font-bold text-primary uppercase">Lihat Semua</span>
+</div>
+<div class="space-y-4">
+<div class="group cursor-pointer">
+<div class="relative rounded-lg overflow-hidden mb-2">
+<img class="w-full h-24 object-cover transition-transform group-hover:scale-105" data-alt="Group of people doing yoga in a park" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYw7yKR7-d7_bPxxQx_Dj47n115GNEDfCSLAVJOLMp5QGtEhlx2bi3G7c1M4ICt4TC0B95g2x9IKGF17gKb_M1xp4ALGAYYptP6GxsaHF257Di-8bf407rbmWaUqPAVCoHtJ3Gy1339zXeSsvLlVHtvzJNCTrImTxD-PWHxY-wdK6lRPx6TpwU-31T6fjkzSGCznt7z0f2YtTeo83sM9FTHKeX1y77eFlIZAg5TxxFKoqv2uUFZvLXX7We_0zFDvofpwiLr2GyI7U"/>
+<div class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-[10px] font-bold text-primary">SAT, 08:00</div>
+</div>
+<h4 class="text-xs font-bold leading-tight">Virtual Morning Yoga Session</h4>
+<p class="text-[10px] text-gray-500 mt-1 flex items-center gap-1">
+<span class="material-icons-outlined text-[10px]">group</span> 128 Peserta
+                            </p>
+</div>
+<div class="group cursor-pointer">
+<div class="relative rounded-lg overflow-hidden mb-2">
+<img class="w-full h-24 object-cover transition-transform group-hover:scale-105" data-alt="Healthy meal prep salad bowls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRKXtYYDG1qG-xNpxxbltpE05zc97eGso8C4KQb4wqPCkkZtXaksasd4-BI3wup5mCb7Z7neZNBbz3Zidr1MvR_SDeuXzWsq-0zwxXE0-651_V2tYSpc0v05TxWYs-zjF55wm_3mPIogOaKM-J8BFt8FFSA75byS_ECN9DanWNripkVjjd4t-t4LzIh2Hnv3JuJvBZW_kqUP5TtEGIlUt9GJH9V_M9ZfcWPR5tSSJAhMWYeSF9Ted0axZhBVr3_UNxaCWv5B5-Vbw"/>
+<div class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-[10px] font-bold text-primary">SUN, 10:00</div>
+</div>
+<h4 class="text-xs font-bold leading-tight">Mindful Eating Workshop</h4>
+<p class="text-[10px] text-gray-500 mt-1 flex items-center gap-1">
+<span class="material-icons-outlined text-[10px]">group</span> 45 Peserta
+                            </p>
+</div>
+</div>
+</div>
+<!-- Active Challenges -->
+<div class="bg-white dark:bg-gray-900/50 p-6 rounded-xl border border-primary/5 shadow-sm">
+<h3 class="font-bold text-sm mb-4">Tantangan Aktif</h3>
+<div class="space-y-5">
+<div>
+<div class="flex justify-between items-end mb-2">
+<div>
+<h4 class="text-xs font-bold">Hidrasi 30 Hari</h4>
+<p class="text-[10px] text-gray-500">Minum 2L air/hari</p>
+</div>
+<span class="text-xs font-bold text-primary">12/30 Hari</span>
+</div>
+<div class="w-full bg-primary/10 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[40%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<div>
+<h4 class="text-xs font-bold">Langkah Ceria</h4>
+<p class="text-[10px] text-gray-500">8.000 langkah/hari</p>
+</div>
+<span class="text-xs font-bold text-primary">5/7 Hari</span>
+</div>
+<div class="w-full bg-primary/10 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[71%] rounded-full"></div>
+</div>
+</div>
+<button class="w-full py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg text-xs font-bold transition-colors">
+                            Cari Tantangan Baru
+                        </button>
+</div>
+</div>
+</aside></div>
+</main>
+<!-- Mobile Navigation Bar (Fixed Bottom) -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-primary/10 px-6 py-3 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-icons-outlined">home</span>
+<span class="text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-outlined">people</span>
+<span class="text-[10px]">Komunitas</span>
+</button>
+<button class="bg-primary p-3 rounded-full -mt-10 shadow-lg text-white">
+<span class="material-icons-outlined">add</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-icons-outlined">show_chart</span>
+<span class="text-[10px]">Progress</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-icons-outlined">person_outline</span>
+<span class="text-[10px]">Profil</span>
+</button>
+</div>
+</body></html>

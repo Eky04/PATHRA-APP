@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Berbagi Pencapaian Lari | PATHRA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --brand-primary: #2563eb;
+            --brand-dark: #1e40af;
+            --brand-light: #eff6ff;
+            --navy-deep: #0f172a;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .share-card-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .social-icon-btn {
+            @apply flex flex-col items-center gap-2 transition-all hover:opacity-80;
+        }
+        .social-circle {
+            @apply w-14 h-14 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-brand;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#eff6ff',
+                            DEFAULT: '#2563eb',
+                            dark: '#1e40af',
+                        },
+                        navy: {
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-slate-50 text-navy-900 font-sans min-h-screen">
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+<div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+<button class="p-2 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined block text-2xl text-navy-900">close</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight text-navy-900">Berbagi Pencapaian</h1>
+<div class="w-10"></div>
+</div>
+</nav>
+<main class="max-w-xl mx-auto px-4 py-8 space-y-8">
+<section class="relative group">
+<div class="share-card-gradient aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/20 relative">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<svg height="100%" viewBox="0 0 400 500" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M100,400 L120,250 L250,260 L280,350 L230,380 L180,340 L100,340" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></path>
+</svg>
+</div>
+<div class="absolute top-6 left-6 right-6 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<img alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-white/50 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATxntvM91rQaJ897zKqIkW72azrtbOAsuRJpnnjbdGwseDOYsmyLP95j97SO6me0ztJK8NTdA7gT7cdej7FQCyxCDp11VdOnuOyo60_l55xB98bag3nDar4QEYj8ySGT3CI0cTE_mafB5ESv1Ep0nhL13IhvAxIU0uQBvU98HKf1uIgpP9FV1RkzvUh7wKvQyeMRy1-NHkTrG3e3HTzbD64mgKZrmYKHUmo9Zq8FJ65hAiM6mLwMFVG4y3Xbb8tmgy81ZRfDRkXlA"/>
+<div class="text-white">
+<p class="text-xs font-bold opacity-80 uppercase tracking-widest">Aktivitas Saya</p>
+<p class="text-sm font-semibold">Budi Santoso</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full backdrop-blur-sm">
+<div class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-brand">bolt</span>
+</div>
+<span class="text-xs font-extrabold text-white tracking-widest">PATHRA</span>
+</div>
+</div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+<h2 class="text-white text-7xl md:text-8xl font-extrabold tracking-tighter drop-shadow-lg mb-2">
+                        6.88<span class="text-2xl ml-1 opacity-80">KM</span>
+</h2>
+<div class="bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/30">
+<p class="text-white text-sm font-bold tracking-wide uppercase">Lari Pagi Selesai!</p>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 right-6">
+<div class="glass-effect rounded-2xl p-5 flex justify-around">
+<div class="text-center">
+<p class="text-[10px] text-white/70 font-bold uppercase tracking-wider mb-1">Waktu</p>
+<p class="text-lg font-bold text-white">01:37:27</p>
+</div>
+<div class="w-px bg-white/20 h-8 self-center"></div>
+<div class="text-center">
+<p class="text-[10px] text-white/70 font-bold uppercase tracking-wider mb-1">Rata-rata Tempo</p>
+<p class="text-lg font-bold text-white">14'10"</p>
+</div>
+<div class="w-px bg-white/20 h-8 self-center"></div>
+<div class="text-center">
+<p class="text-[10px] text-white/70 font-bold uppercase tracking-wider mb-1">Kalori</p>
+<p class="text-lg font-bold text-white">791 kcal</p>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-500 fill-orange-500">workspace_premium</span>
+<span class="text-xs font-bold text-navy-900">Personal Best</span>
+</div>
+</section>
+<section class="space-y-4">
+<div class="bg-white rounded-2xl p-4 border border-slate-200 focus-within:ring-2 focus-within:ring-brand focus-within:border-transparent transition-all">
+<label class="sr-only" for="story">Cerita Lari</label>
+<textarea class="w-full border-none focus:ring-0 p-0 text-navy-900 placeholder:text-slate-400 text-base resize-none" id="story" placeholder="Tuliskan ceritamu..." rows="3"></textarea>
+<div class="flex items-center gap-3 mt-4 pt-3 border-t border-slate-50">
+<button class="flex items-center gap-1.5 text-slate-500 hover:text-brand transition-colors">
+<span class="material-symbols-outlined text-xl">location_on</span>
+<span class="text-xs font-bold">Tambah Lokasi</span>
+</button>
+<button class="flex items-center gap-1.5 text-slate-500 hover:text-brand transition-colors">
+<span class="material-symbols-outlined text-xl">sell</span>
+<span class="text-xs font-bold">Tag Teman</span>
+</button>
+</div>
+</div>
+</section>
+<section class="space-y-8 pt-4">
+<div>
+<button class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">public</span>
+                    Bagikan ke Komunitas
+                </button>
+</div>
+<div class="space-y-5">
+<div class="flex items-center gap-4">
+<div class="h-px flex-1 bg-slate-200"></div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Bagikan ke Media Sosial</span>
+<div class="h-px flex-1 bg-slate-200"></div>
+</div>
+<div class="flex justify-center gap-8 py-2">
+<button class="social-icon-btn">
+<div class="social-circle">
+<span class="material-symbols-outlined text-3xl">auto_stories</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tight">IG Stories</span>
+</button>
+<button class="social-icon-btn">
+<div class="social-circle">
+<span class="material-symbols-outlined text-3xl">grid_view</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tight">IG Feed</span>
+</button>
+<button class="social-icon-btn">
+<div class="social-circle">
+<span class="material-symbols-outlined text-3xl">chat_bubble</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tight">WhatsApp</span>
+</button>
+<button class="social-icon-btn">
+<div class="social-circle">
+<span class="material-symbols-outlined text-3xl">thumb_up</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tight">Facebook</span>
+</button>
+</div>
+</div>
+<button class="w-full bg-white hover:bg-slate-50 text-slate-600 font-bold py-4 rounded-xl transition-all border border-slate-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                Simpan ke Galeri
+            </button>
+</section>
+<div class="flex items-center justify-center gap-2 px-8 text-center pb-8">
+<span class="material-symbols-outlined text-slate-400 text-sm">lock</span>
+<p class="text-[11px] text-slate-400 font-medium">Postingan Anda akan terlihat oleh anggota komunitas PATHRA lainnya.</p>
+</div>
+</main>
+
+</body></html>

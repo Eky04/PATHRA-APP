@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PATHRA - Penilaian Energi AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d4a4",
+                        "background-light": "#ffffff",
+                        "background-dark": "#10221d",
+                        "emerald-deep": "#064e3b",
+                        "sage-soft": "#e1edeb",
+                        "energy-1": "#d1d5db",
+                        "energy-2": "#cbd5e1",
+                        "energy-3": "#99f6e4",
+                        "energy-4": "#5eead4",
+                        "energy-5": "#14b8a6",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .energy-btn:hover .icon-bounce {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-icons-round">auto_awesome</span>
+</div>
+<span class="text-2xl font-bold tracking-tight text-emerald-deep dark:text-primary">PATHRA</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Beranda</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-semibold" href="#">Mulai</a>
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Statistik</a>
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Komunitas</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-icons-round text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="Profile Photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnKfN9krcTPlipz7ieHE2jdv25qKKruF18Wn15Wy9ZA-PTixK5HYWmKKDWXC8fy9LYgotssOXNe6WacbSMHo2PSQF3FmAcYdCsj-ZOJpgIDvnp6fhmk7hZkRwuQRo1Z3wcsAoP9fYdVZ8fP3DZeJTCuCNR5DXcf_E4eK4aHuT5Xd5Dfc3pxRI29xTJ0sy_pyAWhOrfPuSt0tJ4KghJMXfZBW8guEF-3WSuKJe3ckJsUp93e7k5OzYNzX0y6yQSJiwY-ZcZKceIKwY"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-3xl mx-auto px-6 py-12 md:py-20">
+<header class="text-center mb-16">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage-soft dark:bg-emerald-900/30 text-emerald-deep dark:text-primary text-sm font-semibold mb-6">
+<span class="material-icons-round text-sm">psychology</span>
+                Coach AI Pathra
+            </div>
+<h1 class="text-3xl md:text-4xl font-extrabold text-emerald-deep dark:text-white leading-tight">
+                Bagaimana tingkat energimu saat ini, Sarah?
+            </h1>
+<p class="mt-4 text-slate-500 dark:text-slate-400">Pilih level yang paling menggambarkan perasaanmu sekarang.</p>
+</header>
+<section class="mb-16">
+<div class="grid grid-cols-1 sm:grid-cols-5 gap-4">
+<button class="energy-btn group relative flex flex-col items-center p-6 rounded-2xl bg-slate-100 dark:bg-white/5 border-2 border-transparent hover:border-slate-300 dark:hover:border-white/20 transition-all shadow-sm hover:shadow-md">
+<div class="w-14 h-14 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center mb-4 transition-transform icon-bounce">
+<span class="material-symbols-outlined text-3xl text-slate-500">battery_alert</span>
+</div>
+<span class="text-sm font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Sangat Rendah</span>
+</button>
+<button class="energy-btn group relative flex flex-col items-center p-6 rounded-2xl bg-sage-soft/30 dark:bg-emerald-900/10 border-2 border-transparent hover:border-sage-soft dark:hover:border-emerald-800/30 transition-all shadow-sm hover:shadow-md">
+<div class="w-14 h-14 rounded-full bg-sage-soft dark:bg-emerald-900/20 flex items-center justify-center mb-4 transition-transform icon-bounce">
+<span class="material-symbols-outlined text-3xl text-slate-500">battery_1_bar</span>
+</div>
+<span class="text-sm font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Rendah</span>
+</button>
+<button class="energy-btn group relative flex flex-col items-center p-6 rounded-2xl bg-teal-50 dark:bg-teal-900/10 border-2 border-primary/40 transition-all shadow-md">
+<div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 transition-transform icon-bounce">
+<span class="material-symbols-outlined text-3xl text-primary">battery_4_bar</span>
+</div>
+<span class="text-sm font-bold text-emerald-deep dark:text-primary text-center leading-tight">Sedang</span>
+<div class="absolute -top-2 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Aktif</div>
+</button>
+<button class="energy-btn group relative flex flex-col items-center p-6 rounded-2xl bg-teal-100/50 dark:bg-teal-900/20 border-2 border-transparent hover:border-teal-200 transition-all shadow-sm hover:shadow-md">
+<div class="w-14 h-14 rounded-full bg-teal-200/50 dark:bg-teal-800/40 flex items-center justify-center mb-4 transition-transform icon-bounce">
+<span class="material-symbols-outlined text-3xl text-teal-600">bolt</span>
+</div>
+<span class="text-sm font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Tinggi</span>
+</button>
+<button class="energy-btn group relative flex flex-col items-center p-6 rounded-2xl bg-primary/10 dark:bg-primary/5 border-2 border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 transition-transform icon-bounce">
+<span class="material-symbols-outlined text-3xl text-primary">flare</span>
+</div>
+<span class="text-sm font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Sangat Tinggi</span>
+</button>
+</div>
+</section>
+<section class="bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-3xl p-8 shadow-sm mb-12">
+<h3 class="text-lg font-bold text-emerald-deep dark:text-white mb-6 flex items-center gap-2">
+<span class="material-icons-round text-primary">add_circle_outline</span>
+                Konteks Tambahan
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="block text-sm font-semibold text-slate-600 dark:text-slate-400 mb-3">Bagaimana kualitas tidurmu semalam?</label>
+<div class="flex gap-2">
+<button class="flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-primary transition-all text-sm font-medium">Kurang</button>
+<button class="flex-1 py-3 px-4 rounded-xl border-2 border-primary bg-primary/5 text-primary text-sm font-bold">Cukup</button>
+<button class="flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-primary transition-all text-sm font-medium">Sangat Baik</button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-600 dark:text-slate-400 mb-3">Level stres saat ini?</label>
+<div class="flex gap-2">
+<button class="flex-1 py-3 px-4 rounded-xl border-2 border-primary bg-primary/5 text-primary text-sm font-bold">Rendah</button>
+<button class="flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-primary transition-all text-sm font-medium">Normal</button>
+<button class="flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-primary transition-all text-sm font-medium">Tinggi</button>
+</div>
+</div>
+</div>
+</section>
+<div class="flex flex-col items-center gap-4">
+<button class="w-full md:w-auto min-w-[240px] bg-emerald-deep text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all flex items-center justify-center gap-3 shadow-xl shadow-emerald-900/10 group">
+                Lanjutkan
+                <span class="material-icons-round group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 text-sm font-medium transition-colors">
+                Lewati untuk sekarang
+            </button>
+</div>
+</main>
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-slate-100 dark:border-white/10 px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">home</span>
+<span class="text-[10px] font-bold">Beranda</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">add_circle</span>
+<span class="text-[10px] font-bold">Mulai</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">bar_chart</span>
+<span class="text-[10px] font-bold">Statistik</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">person</span>
+<span class="text-[10px] font-bold">Profil</span>
+</button>
+</div>
+
+</body></html>

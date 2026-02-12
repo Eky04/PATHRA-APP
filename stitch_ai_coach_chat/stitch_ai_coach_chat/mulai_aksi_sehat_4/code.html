@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PATHRA - Mulai Aksi Sehat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d4a4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#10221d",
+                        "emerald-deep": "#064e3b",
+                        "sage-soft": "#e1edeb",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<!-- Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-icons-round">auto_awesome</span>
+</div>
+<span class="text-2xl font-bold tracking-tight text-emerald-deep dark:text-primary">PATHRA</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Beranda</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-semibold" href="#">Mulai</a>
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Statistik</a>
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Komunitas</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-icons-round text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="Profile Photo" class="w-full h-full object-cover" data-alt="Professional headshot of a young man smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnKfN9krcTPlipz7ieHE2jdv25qKKruF18Wn15Wy9ZA-PTixK5HYWmKKDWXC8fy9LYgotssOXNe6WacbSMHo2PSQF3FmAcYdCsj-ZOJpgIDvnp6fhmk7hZkRwuQRo1Z3wcsAoP9fYdVZ8fP3DZeJTCuCNR5DXcf_E4eK4aHuT5Xd5Dfc3pxRI29xTJ0sy_pyAWhOrfPuSt0tJ4KghJMXfZBW8guEF-3WSuKJe3ckJsUp93e7k5OzYNzX0y6yQSJiwY-ZcZKceIKwY"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-6 py-12">
+<!-- Header Section -->
+<header class="mb-16">
+<h1 class="text-4xl md:text-5xl font-extrabold text-emerald-deep dark:text-primary mb-4">
+                Apa yang ingin Anda lakukan hari ini?
+            </h1>
+<p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
+                Pilih aksi cepat untuk memulai perjalanan kesehatan Anda hari ini. PATHRA siap mendampingi setiap langkah Anda.
+            </p>
+</header>
+<!-- Primary Action Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<!-- Mulai Olahraga -->
+<button class="group relative overflow-hidden bg-emerald-deep text-white p-8 rounded-xl shadow-xl shadow-emerald-900/10 flex flex-col items-start transition-transform hover:-translate-y-2 text-left">
+<div class="bg-white/10 p-4 rounded-xl mb-6 group-hover:bg-white/20 transition-colors">
+<span class="material-icons-round text-4xl">fitness_center</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">Mulai Olahraga</h3>
+<p class="text-emerald-100/80 mb-8">Pilih program latihan sesuai level energi Anda saat ini.</p>
+<div class="mt-auto flex items-center gap-2 font-semibold">
+<span>Mulai Sekarang</span>
+<span class="material-icons-round text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<!-- Abstract Pattern Overlay -->
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-icons-round text-[180px]">directions_run</span>
+</div>
+</button>
+<!-- Foto Makanan -->
+<button class="group relative overflow-hidden bg-primary text-emerald-deep p-8 rounded-xl shadow-xl shadow-primary/10 flex flex-col items-start transition-transform hover:-translate-y-2 text-left">
+<div class="bg-emerald-deep/10 p-4 rounded-xl mb-6 group-hover:bg-emerald-deep/20 transition-colors">
+<span class="material-icons-round text-4xl">camera_alt</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">Foto Makanan</h3>
+<p class="text-emerald-900/60 mb-8">AI akan otomatis menghitung kalori dan nutrisi makanan Anda.</p>
+<div class="mt-auto flex items-center gap-2 font-bold">
+<span>Ambil Foto</span>
+<span class="material-icons-round text-sm group-hover:translate-x-1 transition-transform">add_a_photo</span>
+</div>
+<!-- Abstract Pattern Overlay -->
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-icons-round text-[180px]">restaurant</span>
+</div>
+</button>
+<!-- Cari Event -->
+<button class="group relative overflow-hidden bg-sage-soft dark:bg-emerald-900/20 text-emerald-deep dark:text-primary-light p-8 rounded-xl shadow-sm flex flex-col items-start transition-transform hover:-translate-y-2 text-left">
+<div class="bg-white dark:bg-primary/20 p-4 rounded-xl mb-6 shadow-sm">
+<span class="material-icons-round text-4xl text-primary">event</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">Cari Event</h3>
+<p class="text-slate-600 dark:text-slate-400 mb-8">Temukan komunitas lari, yoga, atau bootcamp di dekat Anda.</p>
+<div class="mt-auto flex items-center gap-2 font-semibold text-primary">
+<span>Eksplorasi Event</span>
+<span class="material-icons-round text-sm group-hover:translate-x-1 transition-transform">explore</span>
+</div>
+<!-- Abstract Pattern Overlay -->
+<div class="absolute -right-8 -bottom-8 opacity-5 dark:opacity-10 text-emerald-900 dark:text-white">
+<span class="material-icons-round text-[180px]">groups</span>
+</div>
+</button>
+</div>
+<!-- AI Suggestion Section -->
+<section class="relative">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary/20 p-2 rounded-lg">
+<span class="material-icons-round text-primary">psychology</span>
+</div>
+<h2 class="text-xl font-bold text-emerald-deep dark:text-white">Saran AI Untukmu</h2>
+</div>
+</div>
+<div class="bg-white dark:bg-emerald-900/10 border border-primary/10 rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row items-center">
+<div class="p-8 md:p-12 flex-1">
+<div class="flex items-center gap-2 text-primary font-bold mb-4 uppercase tracking-wider text-sm">
+<span class="material-icons-round text-lg">wb_sunny</span>
+<span>Cuaca Sempurna</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 text-emerald-deep dark:text-white">Waktunya Jalan Santai</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg mb-8 leading-relaxed">
+                        Langit sedang cerah di daerahmu (27°C). Ini adalah waktu terbaik untuk berjalan santai selama 20 menit untuk membakar sekitar <span class="text-primary font-bold">150 kalori</span> dan meningkatkan suasana hati.
+                    </p>
+<button class="bg-primary text-emerald-deep px-8 py-4 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform flex items-center gap-3">
+                        Mulai Pelacakan GPS
+                        <span class="material-icons-round">my_location</span>
+</button>
+</div>
+<div class="w-full md:w-[400px] h-[300px] md:h-full relative overflow-hidden bg-sage-soft">
+<img alt="Scenic walking path" class="w-full h-full object-cover" data-alt="Beautiful sunny park path with lush green trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3xUdv4nJ35mdxdmu1zlHq_BqJYrqKHLkonhrRlzG65bCWfzHgi5nXv7LeOPZlEIrqOLTkwzwl7jImAejYXcWcbFyrHtU13EvNAiuh0pmBDU1LkBk4HYOKWp9sfNrIUFwq_xTcpzL7Evv_9W9lXIUo48c_RArQVwRxw70rviQNz8AV1dEFr9teCLBEsfmnbC37An3L7bdREocAiRKGHAUU72yY79IU3iF_IGlIT2tVKV99kU1DrS9nAagenE1vONemZ9DahnPAbsg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-white md:from-transparent to-transparent"></div>
+<!-- Weather Widget Over Image -->
+<div class="absolute top-6 right-6 bg-white/90 backdrop-blur p-4 rounded-xl flex items-center gap-3 shadow-lg">
+<span class="material-icons-round text-amber-500 text-3xl">light_mode</span>
+<div>
+<div class="text-2xl font-bold text-slate-800">27°C</div>
+<div class="text-xs text-slate-500 font-medium">Jakarta Selatan</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Shortcut -->
+<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-100 dark:border-white/10 flex items-center gap-4">
+<div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center text-blue-500">
+<span class="material-icons-round">water_drop</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Air Minum</p>
+<p class="text-xl font-bold">1.2/2.5L</p>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-100 dark:border-white/10 flex items-center gap-4">
+<div class="w-12 h-12 bg-orange-50 dark:bg-orange-900/20 rounded-full flex items-center justify-center text-orange-500">
+<span class="material-icons-round">local_fire_department</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Langkah</p>
+<p class="text-xl font-bold">4,281</p>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-100 dark:border-white/10 flex items-center gap-4">
+<div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 rounded-full flex items-center justify-center text-purple-500">
+<span class="material-icons-round">bedtime</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Tidur</p>
+<p class="text-xl font-bold">7j 12m</p>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-100 dark:border-white/10 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-icons-round">bolt</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Poin Sehat</p>
+<p class="text-xl font-bold">850</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Map Preview (Optional visual flavor) -->
+<div class="max-w-7xl mx-auto px-6 mb-20">
+<div class="rounded-xl overflow-hidden h-48 relative border border-slate-100 dark:border-white/10">
+<img class="w-full h-full object-cover opacity-60 dark:opacity-30 grayscale" data-alt="Minimalist abstract map of a city area" data-location="Jakarta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZAsftbgKWTqDhgaBLuk3uL39pXb_riRNj8B00FiR2LlnECW3BbviBu3IcccmV4Nsu2QEafWzmuzQH5tXe6IrHuMf-n54Mr991RsoGPd18KF8H77OwDvbrHW_2kSM5e-PJSeBk0wHjUkldltwKQlPRXtXsdALYd74y-UalxZz38SiPQSUm1UDZYnw88Ak0K_m8s97FljDlKKKrm4NL593jBBKG4ode2tSb6DWPB4MiMDRpfyxS6WdUfFlGFJVByxjWSx-4ASXdjKs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex items-center gap-2 text-slate-500 font-medium">
+<span class="material-icons-round text-sm">place</span>
+<span>3 Event terdekat ditemukan di sekitarmu</span>
+</div>
+</div>
+</div>
+<!-- Mobile Nav (Visible only on small screens) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-slate-100 dark:border-white/10 px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">home</span>
+<span class="text-[10px] font-bold">Beranda</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">add_circle</span>
+<span class="text-[10px] font-bold">Mulai</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">bar_chart</span>
+<span class="text-[10px] font-bold">Statistik</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">person</span>
+<span class="text-[10px] font-bold">Profil</span>
+</button>
+</div>
+</body></html>

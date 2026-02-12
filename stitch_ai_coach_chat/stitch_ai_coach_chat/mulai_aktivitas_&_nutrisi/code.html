@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PATHRA - Hasil Analisis Detail Nutrisi per Bahan AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#11d4a4",
+                "background-light": "#f6f8f8",
+                "background-dark": "#10221d",
+                "emerald-custom": "#065f46",
+                "sage-custom": "#d1fae5",
+              },
+              fontFamily: {
+                "display": ["Manrope", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Manrope', sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+        .bounding-box {
+            border: 2px solid #11d4a4;
+            background: rgba(17, 212, 164, 0.1);
+            backdrop-filter: blur(2px);
+        }
+        .ai-shimmer {
+            background: linear-gradient(90deg, transparent, rgba(17, 212, 164, 0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-800 dark:text-slate-100 font-display transition-colors duration-300">
+<aside class="fixed left-0 top-0 h-full w-20 lg:w-64 bg-white dark:bg-background-dark border-r border-slate-200 dark:border-emerald-900/30 hidden md:flex flex-col items-center lg:items-start py-8 px-4 z-50">
+<div class="flex items-center gap-3 mb-12 lg:px-4">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-round text-white">auto_awesome</span>
+</div>
+<span class="text-2xl font-extrabold tracking-tight hidden lg:block text-emerald-custom dark:text-primary">PATHRA</span>
+</div>
+<nav class="flex-1 w-full space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-xl transition-all" href="#">
+<span class="material-icons-round">explore</span>
+<span class="font-medium hidden lg:block">Mulai</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-xl transition-all" href="#">
+<span class="material-icons-round">leaderboard</span>
+<span class="font-medium hidden lg:block">Statistik</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-primary bg-primary/10 rounded-xl transition-all" href="#">
+<span class="material-icons-round">restaurant</span>
+<span class="font-bold hidden lg:block">Diet</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-xl transition-all" href="#">
+<span class="material-icons-round">event_available</span>
+<span class="font-medium hidden lg:block">Komunitas</span>
+</a>
+</nav>
+<div class="w-full mt-auto lg:px-4">
+<div class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-emerald-950/20 rounded-xl">
+<img alt="Profile picture" class="w-10 h-10 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu3paHTQB3ebcbb3fZx6JjQO02uMv6_Qf6WUMgafgKn1A9XENHsQ4w8rFSSzQNSYLXVYfDFJdidwIXxk1XNmFEYbEPZ2pQfytvwRCVULhTtZsZ4qBiFDJsmCUfcR1ITFRHcR7zh23wi3xgS_LgdVOWb120BGFk1NkHb37M8EaDvdzd-LG2eV86gr3gBJgbM-ayl_w7Aot8AhI4UHQGkObVGrnPPdyokFsqw_m4FBzwvY5h6cVo_DtGrKLtrvuXoDVNqUnffuXtdPM"/>
+<div class="hidden lg:block overflow-hidden">
+<p class="text-sm font-bold truncate">Aditya Putra</p>
+<p class="text-xs text-slate-400 truncate">Pro Member</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="md:ml-20 lg:ml-64 p-6 lg:p-12">
+<div class="max-w-4xl mx-auto">
+<header class="mb-10 flex items-center justify-between">
+<div>
+<button class="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors mb-4 group">
+<span class="material-icons-round text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span class="text-sm font-bold">Kembali</span>
+</button>
+<h1 class="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white flex items-center gap-3">
+                    Hasil Analisis Detail Nutrisi per Bahan AI
+                    <span class="material-symbols-outlined text-primary text-3xl">flare</span>
+</h1>
+</div>
+<div class="hidden sm:block">
+<div class="bg-primary/10 text-primary px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    AI ENGINE ACTIVE
+                </div>
+</div>
+</header>
+<div class="bg-white dark:bg-emerald-950/10 border border-slate-100 dark:border-emerald-900/30 rounded-2xl overflow-hidden shadow-sm">
+<div class="relative w-full aspect-square sm:aspect-[21/9] lg:aspect-[2/1] bg-slate-100 overflow-hidden">
+<img alt="Salad Ayam Panggang" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIIfI9rlesf4syzhK2OApvtqT5IXRl-p0ztwh99iVClbDTT_thjOeeBG5oPG0ndlTfPItg97rgH18P3zwYBSdmTWEx1fKCo_QDvCXSDEgCEiTPsGxEADd_e060ZG73S3Vs3c7ahgiufJwP39MiOGMwSsKhPE_-vcWBroobqFEVEigiXZ-JlDivUhCHAqgc_WDG529_HN7CX9Ag2pUnzPAg0Y2NZhKUg--wCcn-vi28CZfrUrVFOt_eKoVv7hXbWQwFO7_0u_l6d3M"/>
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-[30%] left-[30%] w-[40%] h-[35%] bounding-box rounded-xl">
+<div class="absolute -top-10 left-0 bg-primary text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-2">
+<span class="material-icons-round text-[14px]">check_circle</span>
+<span>AYAM PANGGANG · <span class="text-emerald-900">25g Protein</span></span>
+</div>
+</div>
+<div class="absolute top-[45%] left-[15%] w-[35%] h-[30%] bounding-box rounded-xl border-dashed opacity-70">
+<div class="absolute -bottom-10 left-0 bg-white/95 dark:bg-emerald-900/95 text-emerald-custom dark:text-primary text-[11px] font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+<span>KALE SEGAR · <span class="opacity-70">5g Karbo</span></span>
+</div>
+</div>
+<div class="absolute top-[20%] left-[65%] w-[15%] h-[20%] bounding-box rounded-xl border-dashed opacity-70">
+<div class="absolute -right-4 -top-10 bg-white/95 dark:bg-emerald-900/95 text-emerald-custom dark:text-primary text-[11px] font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+<span>TOMAT CHERRY · <span class="opacity-70">3g Karbo</span></span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 bg-black/40 backdrop-blur-md text-white px-4 py-2 rounded-xl border border-white/20">
+<p class="text-xs font-medium opacity-80">Terdeteksi:</p>
+<p class="text-lg font-bold">Salad Ayam Panggang</p>
+</div>
+</div>
+<div class="p-8 lg:p-10">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+<div class="p-4 rounded-2xl bg-orange-50 dark:bg-orange-500/10 border border-orange-100 dark:border-orange-500/20 text-center">
+<div class="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3 text-orange-600">
+<span class="material-icons-round">local_fire_department</span>
+</div>
+<p class="text-2xl font-extrabold text-orange-700 dark:text-orange-400">450</p>
+<p class="text-[10px] font-bold text-orange-600/60 uppercase tracking-widest">Kalori</p>
+</div>
+<div class="p-4 rounded-2xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 text-center">
+<div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3 text-blue-600">
+<span class="material-icons-round">fitness_center</span>
+</div>
+<p class="text-2xl font-extrabold text-blue-700 dark:text-blue-400">32g</p>
+<p class="text-[10px] font-bold text-blue-600/60 uppercase tracking-widest">Protein</p>
+</div>
+<div class="p-4 rounded-2xl bg-yellow-50 dark:bg-yellow-500/10 border border-yellow-100 dark:border-yellow-500/20 text-center">
+<div class="w-10 h-10 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-3 text-yellow-600">
+<span class="material-icons-round">grass</span>
+</div>
+<p class="text-2xl font-extrabold text-yellow-700 dark:text-yellow-400">18g</p>
+<p class="text-[10px] font-bold text-yellow-600/60 uppercase tracking-widest">Karbo</p>
+</div>
+<div class="p-4 rounded-2xl bg-purple-50 dark:bg-purple-500/10 border border-purple-100 dark:border-purple-500/20 text-center">
+<div class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3 text-purple-600">
+<span class="material-icons-round">opacity</span>
+</div>
+<p class="text-2xl font-extrabold text-purple-700 dark:text-purple-400">12g</p>
+<p class="text-[10px] font-bold text-purple-600/60 uppercase tracking-widest">Lemak</p>
+</div>
+</div>
+<div class="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40 rounded-2xl p-6 lg:p-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 ai-shimmer opacity-30 transform rotate-45 pointer-events-none"></div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-white dark:bg-emerald-900 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-icons-round text-primary">psychology</span>
+</div>
+<div>
+<h3 class="font-bold text-emerald-custom dark:text-primary mb-2 flex items-center gap-2">
+                                Analisis AI
+                                <span class="bg-emerald-200 dark:bg-emerald-800 text-[10px] px-2 py-0.5 rounded-full">OPTIMAL</span>
+</h3>
+<p class="text-slate-600 dark:text-emerald-100/70 leading-relaxed text-lg italic">
+                                "Pilihan sehat! Kaya akan serat dan protein yang mendukung pemulihan otot setelah sesi yoga Anda tadi pagi. Rendah indeks glikemik untuk energi yang tahan lama."
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 lg:p-8 border-t border-slate-100 dark:border-emerald-900/20 flex flex-col sm:flex-row items-center gap-4">
+<button class="w-full sm:flex-1 bg-emerald-custom text-white font-extrabold py-4 rounded-xl hover:shadow-xl hover:shadow-emerald-900/20 transition-all flex items-center justify-center gap-2 group">
+<span class="material-icons-round">save</span>
+                    Simpan ke Log
+                </button>
+<button class="w-full sm:w-auto px-10 py-4 border-2 border-slate-200 dark:border-emerald-900/50 text-slate-500 dark:text-slate-400 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-emerald-900/20 transition-all flex items-center justify-center gap-2">
+<span class="material-icons-round text-lg">edit</span>
+                    Edit Rincian
+                </button>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-center gap-8 text-slate-400">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-sm">schedule</span>
+<span class="text-xs font-medium">Dianalisis dalam 1.2 detik</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-sm">verified</span>
+<span class="text-xs font-medium">Akurasi 98.4%</span>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-10 right-10 hidden lg:block">
+<div class="bg-white dark:bg-emerald-900 shadow-2xl p-4 rounded-2xl border border-slate-100 dark:border-emerald-800 w-64 flex items-center gap-4">
+<div class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center">
+<span class="material-icons-round">lightbulb</span>
+</div>
+<p class="text-xs font-bold leading-tight">
+            Tip: Tambahkan perasan lemon untuk penyerapan nutrisi lebih baik!
+        </p>
+</div>
+</div>
+
+</body></html>

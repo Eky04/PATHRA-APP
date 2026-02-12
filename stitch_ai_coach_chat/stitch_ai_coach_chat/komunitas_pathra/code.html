@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Komunitas PATHRA | Wellness Companion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#11d4a4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#10221d",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-round text-white text-xl">spa</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">PATHRA</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Meal Plan</a>
+<a class="text-sm font-bold text-primary border-b-2 border-primary py-5" href="#">Komunitas</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Profile</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary/20 border-2 border-primary p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="User profile avatar of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLvxoWEgSNjHQ0IJwiOnH-0zxk9KfLNy5GO3OEyHnGoBLrJfe1JBBR40xPDuOgCa1b2fRayt3PeS6Zki2xhv5SVKSkkp6mF4nK6YQZK8k19b4wY9WjdIII73-V4y0qs5RgWqMjpPn32h3223hnF_0QCL91hpXeeh7kTcJzAeSF7QkuQ1TBQgYaKsrYpeFLaeGGFMPbijMy0e8yyfr-UMcZouwrUcYTEIEdfj27itlp2vLteVjbR9vMeLiNombosQu1FFe5oQfmS2E"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Sidebar (User Stats) -->
+<aside class="hidden lg:block lg:col-span-3 space-y-6">
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-primary/5 shadow-sm">
+<h3 class="font-bold text-lg mb-4">Profil Saya</h3>
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full mb-3 bg-primary/10 flex items-center justify-center">
+<img class="w-full h-full rounded-full object-cover" data-alt="Close up of user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGOtfZsYUkV54GS-Zn_QZJeMLqhpsfETNYQr9RH04754RkP0qC-vfwozF0QT9uL2tCsDD1lFnTuUM5u-iPxT5B1GGOigaAUkbvjlAWzLzKlJ8847d6aNCCRG5b7Yy0Ej-YaZiMB111eKu0mv-Zdx0yOV1DwSBW8q2nxj__epA8rsc7bZ-McdY8DdsxTAyOKHtG5mfaVTDQ1oLJUkU8WkNBFZbLobOVEip9vbM83glMPT8wkNmcP607CubxUjE9RbLgL62K6rVvDd0"/>
+</div>
+<p class="font-bold text-slate-900 dark:text-white">Aris Setiawan</p>
+<p class="text-sm text-slate-500 mb-4">@aris_se</p>
+<div class="grid grid-cols-2 gap-4 w-full pt-4 border-t border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-400 uppercase font-semibold">Post</p>
+<p class="font-bold">128</p>
+</div>
+<div>
+<p class="text-xs text-slate-400 uppercase font-semibold">Teman</p>
+<p class="font-bold">1.2k</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 p-6 rounded-xl border border-primary/20">
+<h4 class="font-bold text-primary flex items-center gap-2 mb-3">
+<span class="material-icons-round text-lg">emoji_events</span>
+                        Target Minggu Ini
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-icons-round text-primary text-sm">check_circle</span>
+<span>Minum 2L Air / hari</span>
+</li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-icons-round text-primary text-sm">check_circle</span>
+<span>Jalan 10k langkah</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-slate-400">
+<span class="material-icons-round text-sm">radio_button_unchecked</span>
+<span>Meditasi 10 menit</span>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Main Feed Area -->
+<section class="col-span-1 lg:col-span-6 space-y-6">
+<!-- Tab Navigation -->
+<div class="flex items-center p-1 bg-white dark:bg-slate-900 rounded-lg border border-primary/10">
+<button class="flex-1 py-2.5 px-4 rounded-md bg-primary text-white font-bold text-sm transition-all shadow-lg shadow-primary/20">
+                        Feed
+                    </button>
+<button class="flex-1 py-2.5 px-4 rounded-md text-slate-500 dark:text-slate-400 hover:text-primary font-semibold text-sm transition-all">
+                        Event
+                    </button>
+<button class="flex-1 py-2.5 px-4 rounded-md text-slate-500 dark:text-slate-400 hover:text-primary font-semibold text-sm transition-all">
+                        Tantangan
+                    </button>
+</div>
+<!-- Create Post Placeholder -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/5 flex gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-200 shrink-0">
+<img class="w-full h-full rounded-full object-cover" data-alt="User thumbnail for post creation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATS7rOz5lHWsRehR1-cxx1wbLLNGuzlea56UouUOzWlUP1eVlBnGQS9IhXpmieXLD5nuRGTYeEij9lqBvyaRs1pt4sxGqokiGx2Nj1_EAigFmu7yzsNl0B47Jj0qenYa3cZzNhTnllh-k6UnuntUZMv4nqNgQrAkyoyQmquTFC2yUF2DBJlmpP--s6dWA_kDoXdKuAjqK0UwlTR8fjYJ-p0t3q_NcGms0EY7Wyr4m5Wo6rCRfl4xiiLMPp1KEndeLBM5VmNFZXG98"/>
+</div>
+<button class="flex-1 bg-background-light dark:bg-slate-800 rounded-full px-5 text-left text-slate-400 text-sm hover:bg-slate-100 transition-colors">
+                        Apa pencapaian sehatmu hari ini, Aris?
+                    </button>
+<button class="p-2 text-primary">
+<span class="material-icons-round">image</span>
+</button>
+</div>
+<!-- Feed Content -->
+<div class="space-y-6">
+<!-- Post 1 -->
+<article class="bg-white dark:bg-slate-900 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200">
+<img class="w-full h-full rounded-full object-cover" data-alt="Female user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqvz-xNyzPXS21Hq3UrxOAwT-PsaP4n0ghG4eiqlDiDm4IqwrKqizt-tj4WZqMxzsQXNhiHSojx15Yzbv4SwYnX_l5YIDWn5AfXn9RBvInyz8CVWaZoIz2FhWwF2rw5E_Wt7C4qHGlxVow8KmvHduBcJ1DMkrKn_AMA_t3t2gSoddnXDFUve4fVN6wJJj5icIPiJbk9EdgBzhhEeWKXMxkekh2ASXMWVAgbD0ZrKX3Y4XwMhd0w4gBcqirHgAD524KnB60azjHPKg"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">Siti Rahmawati</h4>
+<p class="text-xs text-slate-400">2 jam yang lalu • Healthy Lunch</p>
+</div>
+</div>
+<button class="text-slate-400"><span class="material-icons-round text-lg">more_horiz</span></button>
+</div>
+<p class="text-sm leading-relaxed mb-4">
+                                Menikmati salad segar buatan sendiri hari ini. Rasanya luar biasa enak dan bikin badan tetap ringan untuk kerja siang ini! 🥗✨ #HealthyLiving #PATHRA
+                            </p>
+<div class="rounded-lg overflow-hidden mb-4 bg-slate-100 aspect-video">
+<img class="w-full h-full object-cover" data-alt="A colorful fresh salad bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf1v8qm1fyp5IZL-Y8OV0Bhnd_2hpa6QS3-sCpIF8ROI-XwPBlwB3PzzvjliOddvRVKwd9Cd0rz3azhhvlaSaTN0uo81eN5Shq67vabqlDIKhD824gQBlcGYtleVIIeENQ0l_OL1t7uzQ8I3Qmjofn9wIZHcTAFG9wfLabtRRYJBHWSRbJnctWPSzFA5WldggQ0DJDNu2gA0zw0ceYKUTAo9iECsiD5RkN_u7LtkjUfq-bE2OP0xk4Ii7NmMMfklDYPXJbLzaHzHg"/>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div class="flex gap-2">
+<button class="flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-primary/10 text-primary text-xs font-bold hover:bg-primary/20 transition-all">
+<span class="material-icons-round text-sm">celebration</span>
+                                        Cheers!
+                                    </button>
+<button class="flex items-center gap-1.5 py-1.5 px-3 rounded-full text-slate-500 text-xs font-bold hover:bg-slate-100 transition-all">
+<span class="material-icons-round text-sm">favorite_border</span>
+                                        24
+                                    </button>
+</div>
+<button class="flex items-center gap-1 text-slate-400 text-xs">
+<span class="material-icons-round text-sm">chat_bubble_outline</span>
+                                    4 Komentar
+                                </button>
+</div>
+</div>
+</article>
+<!-- Post 2: Achievement -->
+<article class="bg-white dark:bg-slate-900 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200">
+<img class="w-full h-full rounded-full object-cover" data-alt="Male user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMoPhs_KrQZfrx9JzAFrPLKaozPLLf2dpU8eDpkWEyeXvj9SVdCSzF2iaeOhQ5iZJE5TMlG5gSvtnE7x17pbS5jqT0bIT8fowLvZmZX-feofMxY4RHm1IxHrzUMgm40VIYNm_sdjHv31ReJyd4gOGja3zDxSPAqLX4_cR1mCq6NGCbYZ4QQ7_5vFaBiDAiD0bOOrELQEIio8fuHTYAHyvpU4kTWdSgZruo-5Jxj1_h-Y6iPDc1t1EvywInSVU8reyVeLfyLPo5iQU"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">Budi Santoso</h4>
+<p class="text-xs text-slate-400">4 jam yang lalu • Fitness Activity</p>
+</div>
+</div>
+<button class="text-slate-400"><span class="material-icons-round text-lg">more_horiz</span></button>
+</div>
+<div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary mb-4 flex items-center justify-between">
+<div>
+<p class="text-xs text-primary font-bold uppercase tracking-wider mb-1">Aktivitas Baru</p>
+<p class="font-bold text-slate-900 dark:text-white">5.2 KM Lari Pagi</p>
+<p class="text-xs text-slate-500">Durasi: 32 menit • Kalori: 340 kcal</p>
+</div>
+<div class="bg-primary text-white p-2 rounded-lg">
+<span class="material-icons-round">directions_run</span>
+</div>
+</div>
+<p class="text-sm italic text-slate-600 dark:text-slate-400 mb-4">
+                                "Lari pagi ini kerasa seger banget karena cuaca lagi adem. Semangat pejuang sehat!"
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div class="flex gap-2">
+<button class="flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-primary text-white text-xs font-bold shadow-sm">
+<span class="material-icons-round text-sm">celebration</span>
+                                        Cheers!
+                                    </button>
+<button class="flex items-center gap-1.5 py-1.5 px-3 rounded-full text-slate-500 text-xs font-bold hover:bg-slate-100 transition-all">
+<span class="material-icons-round text-sm">favorite_border</span>
+                                        56
+                                    </button>
+</div>
+<button class="flex items-center gap-1 text-slate-400 text-xs">
+<span class="material-icons-round text-sm">chat_bubble_outline</span>
+                                    12 Komentar
+                                </button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Right Sidebar -->
+<aside class="hidden lg:block lg:col-span-3 space-y-6">
+<!-- Active Challenge -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-sm">Tantangan Aktif</h3>
+<a class="text-xs text-primary font-bold" href="#">Lihat Semua</a>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+<div class="flex items-center gap-3 mb-3">
+<div class="p-2 bg-yellow-100 text-yellow-600 rounded-lg">
+<span class="material-icons-round">block</span>
+</div>
+<div>
+<h4 class="text-sm font-bold">7 Hari Tanpa Gula</h4>
+<p class="text-[10px] text-slate-400">2,400+ Peserta</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold">
+<span>Progress</span>
+<span>HARI 4/7</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[57%]"></div>
+</div>
+<p class="text-[10px] text-center text-slate-500 mt-2">Ayo pertahankan streakmu!</p>
+</div>
+</div>
+</div>
+<!-- Upcoming Events -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-sm">Event Mendatang</h3>
+</div>
+<div class="space-y-4">
+<div class="group cursor-pointer">
+<div class="relative rounded-lg overflow-hidden h-28 mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" data-alt="Crowd of people walking together in a park" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEWm927HSIG9wWJjGs-Ki931mxcytqSq_eQOoBEjUz8CJkOiH2InZs5HdloCi4chWBG6p9B_38E16tSsDKvYsLSSUe9g2gOBKXcOULoQhrrpM7Ff4ObHPoezXhodqahqdnbDpp5Gw1irC8TA76D98G7zX8CIdS5nV9yBSSikCOCDF8d7amN1MHffK5dsAKI4LGkFg_LevsNbPHlc5qbGuFvbeNJUDoj8hCCYd9OeVVJDVpXmTgwxWputxd7oK_mFsT8iAkMZlUJFQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-2 left-2">
+<span class="bg-primary text-white text-[10px] px-2 py-0.5 rounded font-bold">MINGGU INI</span>
+</div>
+</div>
+<h4 class="text-sm font-bold leading-tight group-hover:text-primary transition-colors">PATHRA Fun Walk 2024</h4>
+<div class="flex items-center gap-2 mt-1 text-slate-400 text-[10px]">
+<span class="material-icons-round text-xs">location_on</span>
+<span data-location="Jakarta, GBK Stadium">GBK Stadium, Jakarta</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-2 border border-primary text-primary text-xs font-bold rounded-lg hover:bg-primary/5 transition-colors">
+                        Jelajahi Event
+                    </button>
+</div>
+<!-- Suggested Friends -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-primary/5 shadow-sm">
+<h3 class="font-bold text-sm mb-4">Mungkin Kamu Kenal</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100">
+<img class="w-full h-full rounded-full object-cover" data-alt="User avatar woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbKLFQjRxCfx4bfkQei7QyYWlOXITEDijvdrNrzl7i6slIN480hbqSBZAYroc9KEQgz5t06X4UVsXMNfB9C2V6W6l3GejBeIs4IE1ZBgv_hv9F0el63bIataY_l3_v9X7Lm3JtXz3N8FMQWJjCMUYdCTaRyAea586HaidrLsLoVGI2WrJoSpAvOJlM8YV8cUtp-9DPODSbkEyz6mjakNVFoxXWWwFrau-z_erhiPEnKVtQNsJ-spHFmDrptvtRJFTfpE7RlwJ-pgM"/>
+</div>
+<div class="text-[11px]">
+<p class="font-bold">Lina Permata</p>
+<p class="text-slate-400">Pecinta Yoga</p>
+</div>
+</div>
+<button class="text-primary"><span class="material-icons-round text-xl">person_add</span></button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100">
+<img class="w-full h-full rounded-full object-cover" data-alt="User avatar man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5pFipB_jwilfQmbXH6O1qxeY9G3M6-cmBEwaBnR3u8McfVvWrGDXXG-TKPuzZQjaweZ5ZTrSlKfkcOPY6Jk9ezvkua6QVLxJIdkLcRuhtgGzhnuy6skTPgXE7jB792Mj3QMonQbjjuX1gPA8VsWuD7y3SFYNQ3g5i5v391ke_0mIZSqOkQ1l11nUS2B0pjKvvzOoGxsUlxkLQY0AxkEDB2SOKg2iZnMGqAsIk5z0gK3s5AnPp8-PeRiihwp5f5ZcHin7uo1CYvFU"/>
+</div>
+<div class="text-[11px]">
+<p class="font-bold">Rizky Ahmad</p>
+<p class="text-slate-400">Pelari Marathon</p>
+</div>
+</div>
+<button class="text-primary"><span class="material-icons-round text-xl">person_add</span></button>
+</div>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="flex flex-wrap gap-x-4 gap-y-2 px-2">
+<a class="text-[10px] text-slate-400 hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
+<a class="text-[10px] text-slate-400 hover:text-primary transition-colors" href="#">Ketentuan Layanan</a>
+<a class="text-[10px] text-slate-400 hover:text-primary transition-colors" href="#">Bantuan</a>
+<p class="text-[10px] text-slate-400 w-full mt-2">© 2024 PATHRA Wellness AI.</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Mobile Navigation (Fab) -->
+<div class="lg:hidden fixed bottom-6 right-6">
+<button class="w-14 h-14 bg-primary text-white rounded-full shadow-xl shadow-primary/40 flex items-center justify-center">
+<span class="material-icons-round text-3xl">add</span>
+</button>
+</div>
+<!-- Mobile Bottom Tab Bar -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 px-6 py-3 flex justify-between items-center">
+<button class="text-slate-400"><span class="material-icons-round">home</span></button>
+<button class="text-slate-400"><span class="material-icons-round">restaurant_menu</span></button>
+<button class="text-primary"><span class="material-icons-round">groups</span></button>
+<button class="text-slate-400"><span class="material-icons-round">person</span></button>
+</div>
+</body></html>

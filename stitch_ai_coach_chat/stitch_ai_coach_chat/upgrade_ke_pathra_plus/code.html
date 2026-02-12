@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "primary-dark": "#0a3a9c",
+                        "gold-premium": "#d4af37",
+                        "gold-soft": "#fdf8e6",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .gold-shimmer {
+            background: linear-gradient(135deg, #fdf8e6 0%, #ffffff 50%, #fdf8e6 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .premium-shadow {
+            box-shadow: 0 20px 50px rgba(17, 82, 212, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 antialiased min-h-screen">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+<span class="material-icons text-white">bolt</span>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-primary dark:text-white">PATHRA<span class="text-gold-premium italic ml-1">PLUS</span></span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-medium">
+<a class="hover:text-primary transition-colors" href="#">Fitur</a>
+<a class="hover:text-primary transition-colors" href="#">Komunitas</a>
+<a class="hover:text-primary transition-colors" href="#">Bantuan</a>
+<button class="px-5 py-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 transition-colors">Masuk</button>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+<!-- Hero Section -->
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-soft border border-gold-premium/30 mb-6">
+<span class="material-icons text-gold-premium text-sm">stars</span>
+<span class="text-xs font-bold text-gold-premium uppercase tracking-widest">Penawaran Eksklusif</span>
+</div>
+<h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+                Tingkatkan Pengalaman Sehatmu dengan <span class="text-primary">Pathra Plus</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                Dapatkan akses penuh ke ekosistem kesehatan berbasis AI tercanggih. Capai target kebugaranmu lebih cepat dengan fitur premium yang dipersonalisasi.
+            </p>
+</div>
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<!-- Benefits List -->
+<div class="space-y-6">
+<div class="flex gap-5 items-start p-6 rounded-2xl transition-all hover:bg-white dark:hover:bg-slate-800/50">
+<div class="w-14 h-14 shrink-0 bg-primary/10 rounded-xl flex items-center justify-center">
+<span class="material-icons text-primary">groups</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Buat &amp; Kelola Event Komunitas Sendiri</h3>
+<p class="text-slate-600 dark:text-slate-400">Jadilah pemimpin di komunitas Pathra. Buat tantangan lari, sesi meditasi, atau kompetisi diet eksklusif bersama teman-temanmu.</p>
+</div>
+</div>
+<div class="flex gap-5 items-start p-6 rounded-2xl transition-all hover:bg-white dark:hover:bg-slate-800/50">
+<div class="w-14 h-14 shrink-0 bg-gold-soft rounded-xl flex items-center justify-center">
+<span class="material-icons text-gold-premium">restaurant</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Analisis Nutrisi AI Tanpa Batas</h3>
+<p class="text-slate-600 dark:text-slate-400">Foto makananmu kapan saja. Dapatkan rincian kalori, makronutrien, dan saran perbaikan gizi secara instan tanpa batasan harian.</p>
+</div>
+</div>
+<div class="flex gap-5 items-start p-6 rounded-2xl transition-all hover:bg-white dark:hover:bg-slate-800/50">
+<div class="w-14 h-14 shrink-0 bg-primary/10 rounded-xl flex items-center justify-center">
+<span class="material-icons text-primary">support_agent</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Konsultasi Coach AI Prioritas</h3>
+<p class="text-slate-600 dark:text-slate-400">Dapatkan respon lebih cepat dan analisis mendalam dari Coach AI kami. Konsultasi personal yang menyesuaikan dengan riwayat kesehatanmu.</p>
+</div>
+</div>
+<div class="flex gap-5 items-start p-6 rounded-2xl transition-all hover:bg-white dark:hover:bg-slate-800/50">
+<div class="w-14 h-14 shrink-0 bg-gold-soft rounded-xl flex items-center justify-center">
+<span class="material-icons text-gold-premium">verified</span>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Lencana Profil Eksklusif</h3>
+<p class="text-slate-600 dark:text-slate-400">Tunjukkan dedikasimu terhadap kesehatan dengan badge emas eksklusif pada profil dan setiap interaksi komunitasmu.</p>
+</div>
+</div>
+</div>
+<!-- Pricing Card -->
+<div class="relative">
+<!-- Decorative Element -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 blur-3xl rounded-full"></div>
+<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-gold-premium/5 blur-3xl rounded-full"></div>
+<div class="relative gold-shimmer rounded-3xl p-8 md:p-12 premium-shadow overflow-hidden dark:bg-slate-900 border-2 border-gold-premium/40">
+<div class="absolute top-0 right-0 p-4">
+<div class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
+                            Paling Populer
+                        </div>
+</div>
+<div class="mb-8">
+<h2 class="text-2xl font-extrabold mb-1">Pathra Plus Annual</h2>
+<p class="text-slate-500 dark:text-slate-400">Investasi terbaik untuk tubuhmu.</p>
+</div>
+<div class="flex items-baseline gap-2 mb-8">
+<span class="text-5xl font-extrabold tracking-tight">Rp 89.000</span>
+<span class="text-slate-500 font-medium">/ bulan</span>
+</div>
+<div class="space-y-4 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+<span class="font-medium">Semua Fitur Basic</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+<span class="font-medium">Hapus Semua Iklan</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+<span class="font-medium">Akses Offline Data</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+<span class="font-medium">E-book Nutrisi Eksklusif Bulanan</span>
+</div>
+</div>
+<button class="w-full py-4 bg-primary-dark hover:bg-primary text-white font-bold rounded-xl transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2 group">
+                        Mulai Uji Coba Gratis
+                        <span class="material-icons transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<p class="mt-6 text-center text-xs text-slate-500 font-medium italic">
+                        Uji coba 14 hari gratis. Batalkan kapan saja.
+                    </p>
+</div>
+<!-- Preview Badge Card -->
+<div class="mt-8 bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="User Profile" class="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-slate-800" data-alt="Close up portrait of a smiling person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHJpZxu5a0bnjpLLPt6nQLJTNWvZXdjgWKoZVQEJ3mC-sRY3V_Y0S2cIN3N3m2NZE9lir_G-EgGMtfSUqYfDTvjFhfLnPDJW7qlUHxv19GQdCzHAC4d3lVubuyxkhpHFMlfZSTukDgmf_qW96PHKC0J_zPv0WYywhaNKzjK3PSzddgRCnZL6u_e2hm4Ln-EF8O4EEUEx6PPumazAS0wDUilUra6nJ4zm5xb19De12Saojo-zgdLvhyTnd1j10Ijodc4h8zMOZxWqY"/>
+<div class="absolute -bottom-1 -right-1 bg-gold-premium rounded-full p-0.5 border-2 border-white dark:border-slate-800">
+<span class="material-icons text-[10px] text-white block">stars</span>
+</div>
+</div>
+<div>
+<p class="text-sm font-bold">Preview Profil Plus Kamu</p>
+<p class="text-xs text-slate-500">Tampil menonjol di papan peringkat</p>
+</div>
+</div>
+<div class="px-3 py-1 bg-gold-soft text-gold-premium text-[10px] font-bold rounded border border-gold-premium/20">
+                        EXCLUSIVE
+                    </div>
+</div>
+</div>
+</div>
+<!-- Comparison Table (Subtle) -->
+<div class="mt-32 max-w-4xl mx-auto">
+<h3 class="text-2xl font-bold text-center mb-12">Mengapa Memilih Pathra Plus?</h3>
+<div class="overflow-hidden border border-slate-200 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900/50">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50">
+<th class="p-6 font-bold">Fitur Utama</th>
+<th class="p-6 font-bold text-center text-slate-400">Basic</th>
+<th class="p-6 font-bold text-center text-primary">Plus</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="p-6 text-sm">Target Kalori Harian</td>
+<td class="p-6 text-center"><span class="material-icons text-green-500">check</span></td>
+<td class="p-6 text-center"><span class="material-icons text-green-500">check</span></td>
+</tr>
+<tr>
+<td class="p-6 text-sm">Scan Makanan AI</td>
+<td class="p-6 text-center text-xs text-slate-400">3x Per Hari</td>
+<td class="p-6 text-center font-bold text-primary">Unlimited</td>
+</tr>
+<tr>
+<td class="p-6 text-sm">Dukungan Komunitas</td>
+<td class="p-6 text-center text-xs text-slate-400">Hanya Join</td>
+<td class="p-6 text-center font-bold text-primary">Lead Events</td>
+</tr>
+<tr>
+<td class="p-6 text-sm">Respon Coach AI</td>
+<td class="p-6 text-center text-xs text-slate-400">Standar</td>
+<td class="p-6 text-center font-bold text-primary">Prioritas</td>
+</tr>
+<tr>
+<td class="p-6 text-sm">Insight Kesehatan Detail</td>
+<td class="p-6 text-center"><span class="material-icons text-slate-200">close</span></td>
+<td class="p-6 text-center"><span class="material-icons text-green-500">check</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Footer Note -->
+<div class="mt-20 text-center text-slate-400 text-sm">
+<p>© 2024 Pathra Wellness AI. Semua hak dilindungi. <br class="md:hidden"/> Syarat &amp; Ketentuan berlaku.</p>
+</div>
+</main>
+</body></html>

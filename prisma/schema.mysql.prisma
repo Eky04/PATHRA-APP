@@ -1,0 +1,311 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model achievements {
+  id                Int                 @id @default(autoincrement()) @db.UnsignedInt
+  title             String              @db.VarChar(200)
+  description       String?             @db.Text
+  icon              String?             @db.VarChar(50)
+  criteria          String?             @db.VarChar(500)
+  created_at        DateTime            @default(now()) @db.Timestamp(0)
+  user_achievements user_achievements[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model activity_logs {
+  id              Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id         Int      @db.UnsignedInt
+  activity_type   String   @db.VarChar(100)
+  duration        Int      @default(0)
+  calories_burned Int      @default(0)
+  distance        Decimal? @db.Decimal(6, 2)
+  avg_heart_rate  Int?
+  logged_at       DateTime @db.DateTime(0)
+  created_at      DateTime @default(now()) @db.Timestamp(0)
+  users           users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_activity_user")
+
+  @@index([activity_type], map: "idx_activity_type")
+  @@index([user_id, logged_at], map: "idx_activity_user_date")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model body_metrics {
+  id              Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id         Int      @db.UnsignedInt
+  weight          Decimal? @db.Decimal(5, 2)
+  bmi             Decimal? @db.Decimal(4, 1)
+  body_fat        Decimal? @db.Decimal(4, 1)
+  muscle_mass     Decimal? @db.Decimal(5, 2)
+  weight_target   Decimal? @db.Decimal(5, 2)
+  bmi_target      Decimal? @db.Decimal(4, 1)
+  body_fat_target Decimal? @db.Decimal(4, 1)
+  muscle_target   Decimal? @db.Decimal(5, 2)
+  recorded_at     DateTime @db.Date
+  created_at      DateTime @default(now()) @db.Timestamp(0)
+  users           users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_body_user")
+
+  @@index([user_id, recorded_at], map: "idx_body_user_date")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model challenge_participants {
+  id           Int        @id @default(autoincrement()) @db.UnsignedInt
+  challenge_id Int        @db.UnsignedInt
+  user_id      Int        @db.UnsignedInt
+  progress     Int        @default(0)
+  joined_at    DateTime   @default(now()) @db.Timestamp(0)
+  challenges   challenges @relation(fields: [challenge_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_cp_challenge")
+  users        users      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_cp_user")
+
+  @@unique([challenge_id, user_id], map: "uk_challenge_user")
+  @@index([user_id], map: "fk_cp_user")
+}
+
+model challenges {
+  id                     Int                      @id @default(autoincrement()) @db.UnsignedInt
+  title                  String                   @db.VarChar(200)
+  description            String?                  @db.Text
+  icon                   String?                  @db.VarChar(50)
+  start_date             DateTime                 @db.Date
+  end_date               DateTime                 @db.Date
+  created_by             Int?                     @db.UnsignedInt
+  created_at             DateTime                 @default(now()) @db.Timestamp(0)
+  challenge_participants challenge_participants[]
+  users                  users?                   @relation(fields: [created_by], references: [id], onUpdate: NoAction, map: "fk_challenge_creator")
+
+  @@index([created_by], map: "fk_challenge_creator")
+  @@index([start_date, end_date], map: "idx_challenge_dates")
+}
+
+model coach_conversations {
+  id             Int              @id @default(autoincrement()) @db.UnsignedInt
+  user_id        Int              @db.UnsignedInt
+  started_at     DateTime         @default(now()) @db.Timestamp(0)
+  users          users            @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_convo_user")
+  coach_messages coach_messages[]
+
+  @@index([user_id], map: "idx_convo_user")
+}
+
+model coach_messages {
+  id                  Int                        @id @default(autoincrement()) @db.UnsignedInt
+  conversation_id     Int                        @db.UnsignedInt
+  sender_type         coach_messages_sender_type
+  content             String                     @db.Text
+  created_at          DateTime                   @default(now()) @db.Timestamp(0)
+  coach_conversations coach_conversations        @relation(fields: [conversation_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_msg_convo")
+
+  @@index([conversation_id, created_at], map: "idx_msg_convo")
+}
+
+model community_posts {
+  id             Int             @id @default(autoincrement()) @db.UnsignedInt
+  user_id        Int             @db.UnsignedInt
+  content        String          @db.Text
+  image_url      String?         @db.VarChar(500)
+  likes_count    Int             @default(0)
+  comments_count Int             @default(0)
+  created_at     DateTime        @default(now()) @db.Timestamp(0)
+  updated_at     DateTime        @default(now()) @db.Timestamp(0)
+  users          users           @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_post_user")
+  post_comments  post_comments[]
+  post_likes     post_likes[]
+
+  @@index([created_at], map: "idx_post_created")
+  @@index([user_id], map: "idx_post_user")
+}
+
+model daily_stats {
+  id                      Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id                 Int      @db.UnsignedInt
+  stat_date               DateTime @db.Date
+  total_calories_consumed Int      @default(0)
+  total_calories_burned   Int      @default(0)
+  total_steps             Int      @default(0)
+  total_water_ml          Int      @default(0)
+  total_activities        Int      @default(0)
+  total_protein           Decimal  @default(0.00) @db.Decimal(6, 2)
+  total_carbs             Decimal  @default(0.00) @db.Decimal(6, 2)
+  total_fat               Decimal  @default(0.00) @db.Decimal(6, 2)
+  created_at              DateTime @default(now()) @db.Timestamp(0)
+  updated_at              DateTime @default(now()) @db.Timestamp(0)
+  users                   users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_daily_user")
+
+  @@unique([user_id, stat_date], map: "uk_daily_user_date")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model food_items {
+  id         Int         @id @default(autoincrement()) @db.UnsignedInt
+  name       String      @db.VarChar(200)
+  calories   Int         @default(0)
+  protein    Decimal     @default(0.00) @db.Decimal(6, 2)
+  carbs      Decimal     @default(0.00) @db.Decimal(6, 2)
+  fat        Decimal     @default(0.00) @db.Decimal(6, 2)
+  portion    String?     @db.VarChar(100)
+  image      String?     @db.VarChar(255)
+  category   String?     @db.VarChar(100)
+  is_popular Boolean     @default(false)
+  created_at DateTime    @default(now()) @db.Timestamp(0)
+  food_logs  food_logs[]
+
+  @@index([name], map: "idx_food_name")
+  @@index([is_popular], map: "idx_food_popular")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model food_logs {
+  id            Int                     @id @default(autoincrement()) @db.UnsignedInt
+  user_id       Int                     @db.UnsignedInt
+  food_item_id  Int?                    @db.UnsignedInt
+  food_name     String                  @db.VarChar(200)
+  meal_category food_logs_meal_category @default(snack)
+  calories      Int                     @default(0)
+  protein       Decimal                 @default(0.00) @db.Decimal(6, 2)
+  carbs         Decimal                 @default(0.00) @db.Decimal(6, 2)
+  fat           Decimal                 @default(0.00) @db.Decimal(6, 2)
+  portion       String?                 @db.VarChar(100)
+  photo_url     String?                 @db.VarChar(500)
+  logged_at     DateTime                @db.DateTime(0)
+  created_at    DateTime                @default(now()) @db.Timestamp(0)
+  food_items    food_items?             @relation(fields: [food_item_id], references: [id], onUpdate: NoAction, map: "fk_foodlog_item")
+  users         users                   @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_foodlog_user")
+
+  @@index([food_item_id], map: "fk_foodlog_item")
+  @@index([user_id, logged_at], map: "idx_foodlog_user_date")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model leaderboard {
+  id             Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id        Int      @unique(map: "uk_leaderboard_user") @db.UnsignedInt
+  total_points   Int      @default(0)
+  current_streak Int      @default(0)
+  longest_streak Int      @default(0)
+  updated_at     DateTime @default(now()) @db.Timestamp(0)
+  users          users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_leaderboard_user")
+
+  @@index([total_points(sort: Desc)], map: "idx_leaderboard_points")
+}
+
+model post_comments {
+  id              Int             @id @default(autoincrement()) @db.UnsignedInt
+  post_id         Int             @db.UnsignedInt
+  user_id         Int             @db.UnsignedInt
+  content         String          @db.Text
+  created_at      DateTime        @default(now()) @db.Timestamp(0)
+  community_posts community_posts @relation(fields: [post_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_comment_post")
+  users           users           @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_comment_user")
+
+  @@index([user_id], map: "fk_comment_user")
+  @@index([post_id], map: "idx_comment_post")
+}
+
+model post_likes {
+  id              Int             @id @default(autoincrement()) @db.UnsignedInt
+  post_id         Int             @db.UnsignedInt
+  user_id         Int             @db.UnsignedInt
+  created_at      DateTime        @default(now()) @db.Timestamp(0)
+  community_posts community_posts @relation(fields: [post_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_like_post")
+  users           users           @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_like_user")
+
+  @@unique([post_id, user_id], map: "uk_like_post_user")
+  @@index([user_id], map: "fk_like_user")
+}
+
+model user_achievements {
+  id             Int          @id @default(autoincrement()) @db.UnsignedInt
+  user_id        Int          @db.UnsignedInt
+  achievement_id Int          @db.UnsignedInt
+  unlocked_at    DateTime     @default(now()) @db.Timestamp(0)
+  achievements   achievements @relation(fields: [achievement_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_ua_achievement")
+  users          users        @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_ua_user")
+
+  @@unique([user_id, achievement_id], map: "uk_user_achievement")
+  @@index([achievement_id], map: "fk_ua_achievement")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model user_profiles {
+  id                   Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id              Int      @unique(map: "uk_user_profile") @db.UnsignedInt
+  daily_calorie_target Int      @default(2500)
+  daily_steps_target   Int      @default(10000)
+  daily_water_target   Int      @default(2000)
+  daily_protein_target Int      @default(100)
+  daily_carbs_target   Int      @default(300)
+  daily_fat_target     Int      @default(80)
+  age                  Int?
+  gender               String?  @db.VarChar(10)
+  height               Decimal? @db.Decimal(5, 2)
+  weight               Decimal? @db.Decimal(5, 2)
+  favorite_sports      String?  @db.VarChar(500)
+  health_motivation    String?  @db.VarChar(255)
+  onboarding_completed Boolean  @default(false)
+  created_at           DateTime @default(now()) @db.Timestamp(0)
+  updated_at           DateTime @default(now()) @db.Timestamp(0)
+  users                users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_profile_user")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model users {
+  id                     Int                      @id @default(autoincrement()) @db.UnsignedInt
+  username               String                   @unique(map: "uk_username") @db.VarChar(100)
+  password               String                   @db.VarChar(255)
+  name                   String                   @db.VarChar(150)
+  email                  String                   @unique(map: "uk_email") @db.VarChar(150)
+  avatar                 String?                  @db.VarChar(255)
+  role                   users_role               @default(user)
+  created_at             DateTime                 @default(now()) @db.Timestamp(0)
+  updated_at             DateTime                 @default(now()) @db.Timestamp(0)
+  activity_logs          activity_logs[]
+  body_metrics           body_metrics[]
+  challenge_participants challenge_participants[]
+  challenges             challenges[]
+  coach_conversations    coach_conversations[]
+  community_posts        community_posts[]
+  daily_stats            daily_stats[]
+  food_logs              food_logs[]
+  leaderboard            leaderboard?
+  post_comments          post_comments[]
+  post_likes             post_likes[]
+  user_achievements      user_achievements[]
+  user_profiles          user_profiles?
+  water_logs             water_logs[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model water_logs {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id    Int      @db.UnsignedInt
+  amount     Int
+  logged_at  DateTime @db.DateTime(0)
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_water_user")
+
+  @@index([user_id, logged_at], map: "idx_water_user_date")
+}
+
+enum coach_messages_sender_type {
+  user
+  ai
+}
+
+enum food_logs_meal_category {
+  sarapan
+  makan_siang
+  makan_malam
+  snack
+}
+
+enum users_role {
+  admin
+  user
+}

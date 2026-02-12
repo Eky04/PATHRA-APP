@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pelacak Nutrisi AI - PATHRA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#11d473",
+                "background-light": "#f6f8f7",
+                "background-dark": "#102219",
+              },
+              fontFamily: {
+                "display": ["Manrope", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen">
+<!-- Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="bg-primary w-8 h-8 rounded-lg flex items-center justify-center">
+<span class="material-icons-outlined text-white text-xl">auto_awesome</span>
+</div>
+<span class="text-xl font-bold tracking-tight">PATHRA</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-primary" href="#">Nutrisi</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Rencana Makan</a>
+<div class="w-10 h-10 rounded-full bg-primary/20 overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwoiAY-aBD4lnSpeK0JGH0Kd61KCrZre60nDTtz0quLuxd-aH40xR8obRKHTd-5uXSIjufVfY8PrqGVd6iBfl6K-sIOwr6y0n8TLM4ubnMB9QgZ8F0-pAkZiycuwuzTl6VKTPYCkNZVbKMhuHNAiHprW-Y6gh6jmZUAVjBQ3nMcFlhpoEtpXWpSY6ktjqfq38zN2jrODdh7qQz2ig8kbW6D14UILIsxTN65DxnuRvB8sCka6E0IK2slfi-NtRAZZDHyPZmrhvEEpU"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-6xl mx-auto px-6 py-8">
+<!-- Header Section -->
+<header class="mb-8 flex justify-between items-end">
+<div>
+<h1 class="text-3xl font-extrabold mb-1">Pelacak Nutrisi AI</h1>
+<p class="text-slate-500 dark:text-slate-400">Senin, 22 Mei 2024</p>
+</div>
+<div class="hidden md:block">
+<div class="bg-white dark:bg-slate-800 p-2 rounded-lg border border-primary/10 flex gap-1">
+<button class="px-4 py-2 rounded font-medium text-sm bg-primary text-white">Hari Ini</button>
+<button class="px-4 py-2 rounded font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-700">Minggu</button>
+<button class="px-4 py-2 rounded font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-700">Bulan</button>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Stats and Action -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Calorie Summary Card -->
+<section class="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-wider">Sisa Kalori</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-6xl font-black text-slate-900 dark:text-white">1,200</span>
+<span class="text-xl font-bold text-slate-400">kcal</span>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<div>
+<p class="text-xs text-slate-400 font-medium">DIKONSUMSI</p>
+<p class="text-lg font-bold text-primary">800 kcal</p>
+</div>
+<div class="w-px h-8 bg-slate-200 dark:bg-slate-700"></div>
+<div>
+<p class="text-xs text-slate-400 font-medium">TARGET</p>
+<p class="text-lg font-bold text-slate-700 dark:text-slate-200">2,000 kcal</p>
+</div>
+</div>
+</div>
+<!-- Ring Chart Representation (Simple CSS) -->
+<div class="relative w-40 h-40 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border-[12px] border-slate-100 dark:border-slate-800"></div>
+<div class="absolute inset-0 rounded-full border-[12px] border-primary border-t-transparent border-r-transparent -rotate-45"></div>
+<span class="material-icons-outlined text-4xl text-primary">restaurant</span>
+</div>
+</div>
+<!-- Macro Breakdown -->
+<div class="mt-10 pt-8 border-t border-slate-100 dark:border-slate-800">
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2.5 h-2.5 rounded-full bg-blue-400"></div>
+<span class="text-xs font-semibold text-slate-500">KARBOHIDRAT</span>
+</div>
+<p class="text-lg font-bold">120g</p>
+<div class="w-full h-1 bg-slate-100 dark:bg-slate-800 rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-blue-400 w-3/5"></div>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2.5 h-2.5 rounded-full bg-orange-400"></div>
+<span class="text-xs font-semibold text-slate-500">PROTEIN</span>
+</div>
+<p class="text-lg font-bold">60g</p>
+<div class="w-full h-1 bg-slate-100 dark:bg-slate-800 rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-orange-400 w-2/5"></div>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+<span class="text-xs font-semibold text-slate-500">LEMAK</span>
+</div>
+<p class="text-lg font-bold">30g</p>
+<div class="w-full h-1 bg-slate-100 dark:bg-slate-800 rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-yellow-400 w-1/4"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Button -->
+<button class="w-full group bg-primary hover:bg-[#0eb863] text-white p-6 rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 flex items-center justify-center gap-4 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+<span class="material-icons-outlined text-3xl">add_a_photo</span>
+<span class="text-xl font-extrabold uppercase tracking-tight">Unggah Foto Makanan</span>
+<span class="material-icons-outlined animate-pulse">auto_awesome</span>
+</button>
+<!-- AI Recommendation Card (Bottom) -->
+<div class="bg-[#e9f7ef] dark:bg-slate-800 p-6 rounded-xl border-l-4 border-primary flex gap-4 items-start">
+<div class="bg-primary/20 p-2 rounded-lg text-primary">
+<span class="material-icons-outlined">psychology</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-800 dark:text-primary mb-1 text-lg">Tips PATHRA AI</h3>
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            "Berdasarkan target harianmu, kamu butuh <span class="font-bold text-slate-900 dark:text-white">lebih banyak protein</span> hari ini untuk mencapai target ototmu. Coba tambahkan dada ayam atau tempe pada makan malam nanti!"
+                        </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Food Log -->
+<div class="lg:col-span-5 flex flex-col h-full">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col h-full">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h2 class="font-bold text-xl">Log Makanan</h2>
+<button class="text-primary text-sm font-bold hover:underline">Lihat Semua</button>
+</div>
+<div class="flex-grow overflow-y-auto p-4 space-y-4 max-h-[600px]">
+<!-- Log Item 1 -->
+<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Nasi Goreng bowl with egg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_tABIpsA2Zo_5l_0Lln4wKtFXuTl8XWqqaqSjevcl9X1bYaZdGf75D70rF5qHqhGhhL67cRgXippmWRvIbCYQwA8SQlm9RTOhDowQrXpFeguaNvSzedxqDDlLY-g7th4Dfv6DhJvCwI_HYPXlkuqmWpQ8nolqoCS9RtZ73ZO_oA5_UtR-oUbMOyzC5PPVlDB1KBF4OLYTis6p0-8mifhRBbzs04EajgjbyHTMyTrb9TGyv28sqSZSsHRYXkrL90D71vJ4jMBdYT0"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-slate-800 dark:text-slate-100">Nasi Goreng</h4>
+<p class="text-xs text-slate-400">Hari ini • 08:30 AM</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-slate-900 dark:text-white text-lg">450</p>
+<p class="text-[10px] text-slate-400 uppercase font-bold">kcal</p>
+</div>
+</div>
+<!-- Log Item 2 -->
+<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Fresh red apple" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvh3ePHR7TR9Mi_Z4JQ8aAvtztYyVTcNIwQpS_Kcm4eAwxKeZKM7VtarR9JgPmpyuE47SjujrWCZ9es9t49L3wCg04mMkKToEbHJMAWiJ8gF-xAf6GLD22IqbwrG-rypQH7DNWSAoiEK9t1iU57-XL32uDjWSbqLKeRQyJqefwWqefiNw0-Kzu4E86DktY0nsOEh86_Is53kQ166ih9xpzf-bo08g6M3Jq9xL46YQoLCdt5DfIo2bdP8SemEceZyeH-QOCYwmIgGg"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-slate-800 dark:text-slate-100">Apel Merah</h4>
+<p class="text-xs text-slate-400">Hari ini • 11:15 AM</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-slate-900 dark:text-white text-lg">95</p>
+<p class="text-[10px] text-slate-400 uppercase font-bold">kcal</p>
+</div>
+</div>
+<!-- Log Item 3 -->
+<div class="flex items-center gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Healthy salad bowl with avocado" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoZJHETKWKQvz-TkksF7xr2nm77jeYu7DDxSONnppnGas2Blr3qM21Et2XAk7vjZRsID_P6m67Oa6wPUmc0kRNkNQRYURAwIiQe_MviL2a-KCOSyGD8pwP4zfQ9zejrf8UCx5aIS3igNGr4X9la4A_V-lPyQ-cF3NdUrvmIGwPsOvra9kbeErVP68yVftPv4uXyzUrZ5-JVUgHmQgrmQb-j1MBX1W4OQ7c45yoclMe7icOuG_6CtZ4JlGXC052ZpNp_h-xb6DIvRg"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-slate-800 dark:text-slate-100">Salad Sayur</h4>
+<p class="text-xs text-slate-400">Hari ini • 12:45 PM</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-slate-900 dark:text-white text-lg">255</p>
+<p class="text-[10px] text-slate-400 uppercase font-bold">kcal</p>
+</div>
+</div>
+<!-- Empty state / Placeholder for more -->
+<div class="border-2 border-dashed border-slate-100 dark:border-slate-800 rounded-xl p-8 flex flex-col items-center justify-center text-center opacity-60">
+<span class="material-icons-outlined text-slate-300 mb-2">history</span>
+<p class="text-sm text-slate-400">Belum ada makanan lainnya.</p>
+</div>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-slate-800/30 rounded-b-xl">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-slate-500">Total Hari Ini</span>
+<span class="text-xl font-extrabold text-primary">800 kcal</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Meta -->
+<footer class="max-w-6xl mx-auto px-6 py-12 border-t border-slate-100 dark:border-slate-800 mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm">
+<p>© 2024 PATHRA AI Wellness Companion. Dibuat dengan cinta untuk kesehatanmu.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#">Syarat &amp; Ketentuan</a>
+<a class="hover:text-primary" href="#">Kebijakan Privasi</a>
+</div>
+</footer>
+</body></html>

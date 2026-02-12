@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#1254be", "emerald-dark": "#064e3b", "teal-accent": "#0d9488", "background-light": "#f6f7f8", "map-bg": "#e2e8f0", "background-dark": "#111721"}, fontFamily: {display: "Manrope"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .map-gradient {
+                background: linear-gradient(to bottom, rgba(255,255,255,0) 80%, rgba(248,250,252,1) 100%);
+            }
+        }
+        .route-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 3s ease-out forwards;
+        }
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+<title>PATHRA - Pelacakan Lari</title>
+</head>
+<body class="font-display bg-background-light text-slate-900 min-h-screen flex flex-col overflow-hidden">
+<section class="relative h-[40vh] w-full bg-[#f1f5f9] overflow-hidden">
+<div class="absolute inset-0 opacity-40">
+<svg class="w-full h-full" viewbox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 100 L800 100 M0 200 L800 200 M0 300 L800 300 M100 0 L100 400 M200 0 L200 400 M300 0 L300 400 M400 0 L400 400 M500 0 L500 400 M600 0 L600 400 M700 0 L700 400" fill="none" stroke="#cbd5e1" stroke-width="1"></path>
+<path class="route-path" d="M100 350 Q 150 300, 250 320 T 400 250 T 550 200 T 700 150" fill="none" stroke="#11d4c4" stroke-linecap="round" stroke-width="6"></path>
+<circle class="animate-pulse" cx="700" cy="150" fill="#11d4c4" r="8"></circle>
+<circle class="animate-ping opacity-50" cx="700" cy="150" fill="none" r="16" stroke="#11d4c4" stroke-width="2"></circle>
+</svg>
+</div>
+<div class="absolute inset-0 map-gradient pointer-events-none"></div>
+<div class="absolute top-6 left-6 flex items-center gap-3">
+<div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-slate-200/50 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+<span class="text-xs font-bold tracking-wider text-slate-600 uppercase">GPS Aktif</span>
+</div>
+</div>
+<div class="absolute top-6 right-6">
+<button class="w-10 h-10 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-slate-200/50 flex items-center justify-center text-slate-600 hover:text-primary transition-colors">
+<span class="material-icons">my_location</span>
+</button>
+</div>
+</section>
+<main class="flex-1 bg-background-light flex flex-col px-8 py-10 max-w-4xl mx-auto w-full">
+<div class="flex flex-col items-center mb-12">
+<span class="text-slate-400 font-semibold uppercase tracking-[0.2em] text-xs mb-2">Jarak Total</span>
+<div class="flex items-baseline gap-2">
+<h2 class="text-8xl font-extrabold text-slate-900 tracking-tight">3.52</h2>
+<span class="text-2xl font-bold text-teal-accent">km</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12 mb-12">
+<div class="flex flex-col items-center border-r border-slate-200">
+<span class="text-slate-400 font-semibold uppercase tracking-widest text-[10px] mb-2">Waktu</span>
+<p class="text-4xl font-bold text-slate-800">18:42</p>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-slate-400 font-semibold uppercase tracking-widest text-[10px] mb-2">Rata-rata Pace</span>
+<p class="text-4xl font-bold text-slate-800">5'20"<span class="text-lg text-slate-400 ml-1">/km</span></p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-auto">
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
+<div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+<span class="material-icons text-red-500">favorite</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Detak Jantung</p>
+<p class="text-xl font-bold text-slate-800">142 <span class="text-xs font-normal text-slate-400">BPM</span></p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
+<div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center">
+<span class="material-icons text-orange-500">local_fire_department</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Kalori</p>
+<p class="text-xl font-bold text-slate-800">284 <span class="text-xs font-normal text-slate-400">kcal</span></p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center gap-6 mt-12 pb-8">
+<button class="flex-1 max-w-[200px] h-16 bg-white border-2 border-slate-200 hover:border-slate-300 rounded-full flex items-center justify-center gap-3 transition-all active:scale-95 group">
+<div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center group-hover:bg-slate-200 transition-colors">
+<span class="material-icons text-slate-600 text-lg">pause</span>
+</div>
+<span class="font-bold text-slate-700">Jeda</span>
+</button>
+<button class="flex-1 max-w-[200px] h-16 bg-emerald-dark hover:bg-slate-900 text-white rounded-full flex items-center justify-center gap-3 shadow-xl shadow-emerald-900/20 transition-all active:scale-95">
+<div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+<span class="material-icons text-white text-lg">stop</span>
+</div>
+<span class="font-bold">Selesai</span>
+</button>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-slate-400 uppercase tracking-[0.3em] font-bold">
+                PATHRA Performance Engine
+            </p>
+</div>
+</main>
+<div class="fixed bottom-0 right-0 p-4 pointer-events-none opacity-10">
+<span class="material-icons text-9xl text-teal-accent">speed</span>
+</div>
+</body></html>

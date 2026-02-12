@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hari Ini - PATHRA Wellness</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Font+Unspecified:wght@300;400;500;600;700;800&amp;family=Font+Unspecified:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#14b874", "background-light": "#f6f8f7", "background-dark": "#11211a", "sage-light": "#e8f5ee", "sage-dark": "#1b2e25"}, fontFamily: {display: "Font Unspecified", cursive: ["Dancing Script", "cursive"]}, borderRadius: {DEFAULT: "0px", lg: "0px", xl: "0px", full: "0px"}}}};</script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #14b87433;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen flex">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-primary/10 bg-white dark:bg-background-dark flex flex-col fixed h-full z-20">
+<div class="p-8">
+<div class="flex items-center gap-2 text-primary font-extrabold text-2xl tracking-tight">
+<span class="material-icons-round text-3xl">spa</span>
+                PATHRA
+            </div>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-semibold transition-all shadow-lg shadow-primary/20" href="#">
+<span class="material-icons-round">grid_view</span>
+                Hari Ini
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all" href="#">
+<span class="material-icons-round">restaurant</span>
+                Menu Makan
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all" href="#">
+<span class="material-icons-round">fitness_center</span>
+                Latihan
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all" href="#">
+<span class="material-icons-round">insights</span>
+                Progres
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all" href="#">
+<span class="material-icons-round">person</span>
+                Profil
+            </a>
+</nav>
+<div class="p-6 border-t border-primary/10">
+<div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-xl flex items-center gap-3">
+<img alt="Sarah" class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of Sarah smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFgdj1cD6zIPknzOEFTHczoCGEEf5MEl8Z8ot8KYJ4wB9N6EADB6hp70wVdXBPys0oo56zok9MOOf_UNXJ00T-jji5W2Z8o8qhztmEOJ873jBkBdkD-nmHod4qhO0wuflEso2PCdzaVr2cIIgWkXwYRidYLXugbbnfeFIDxWcb6_ivjrSrdFMBdIeNJ1qC9n9DKdJFS4aJWYtzlfi4zL-S2gdgN-eKIyu6e4YczQqSBrVkVYOWBgvDOR-FDZDXbIAGlJbPghO-kuo"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Sarah Johnson</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 p-8 lg:p-12 overflow-y-auto custom-scrollbar">
+<!-- Top Header -->
+<header class="flex justify-between items-center mb-10">
+<div>
+<h1 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Halo, Sarah</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Ayo teruskan tren positifmu hari ini.</p>
+</div>
+<div class="flex gap-4">
+<button class="p-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:shadow-md transition-all relative">
+<span class="material-icons-round">notifications</span>
+<span class="absolute top-2 right-2 w-3 h-3 bg-red-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
+</button>
+<button class="p-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:shadow-md transition-all">
+<span class="material-icons-round">settings</span>
+</button>
+</div>
+</header>
+<!-- AI Status Card -->
+<div class="mb-10 p-6 rounded-2xl bg-sage-light dark:bg-sage-dark border border-primary/10 flex items-center gap-6">
+<div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center text-primary">
+<span class="material-icons-round text-4xl">auto_awesome</span>
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-primary mb-1">Status PATHRA AI</h3>
+<p class="text-slate-700 dark:text-slate-200 text-lg leading-relaxed">
+                    Tubuhmu terhidrasi dengan baik pagi ini. Konsumsi air meningkat <span class="font-bold text-primary">15%</span> dibandingkan kemarin jam yang sama. Pertahankan!
+                </p>
+</div>
+<div class="hidden lg:block px-6 py-2 bg-white/50 dark:bg-white/5 rounded-full text-sm font-medium text-slate-600 dark:text-slate-300">
+                Update 5m yang lalu
+            </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Metrics and Activities -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Steps Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-icons-round text-primary bg-primary/10 p-2 rounded-lg">directions_walk</span>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Langkah</span>
+</div>
+<div class="relative flex items-center justify-center py-4">
+<!-- Circular Progress Simulation -->
+<svg class="w-32 h-32 transform -rotate-90">
+<circle class="text-slate-100 dark:text-slate-700" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="131.2" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-extrabold">6,400</span>
+<span class="text-xs text-slate-400">/ 10k</span>
+</div>
+</div>
+</div>
+<!-- Calories Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<span class="material-icons-round text-orange-500 bg-orange-500/10 p-2 rounded-lg">local_fire_department</span>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Kalori</span>
+</div>
+<div class="space-y-4 pt-2">
+<div class="flex justify-between items-end">
+<span class="text-3xl font-extrabold">1,200</span>
+<span class="text-sm font-semibold text-slate-500">kcal</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 h-3 rounded-full overflow-hidden">
+<div class="bg-orange-500 h-full w-[60%]"></div>
+</div>
+<p class="text-xs text-slate-400">Target harian: 2,000 kcal</p>
+</div>
+</div>
+<!-- Water Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<span class="material-icons-round text-blue-500 bg-blue-500/10 p-2 rounded-lg">water_drop</span>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Air Minum</span>
+</div>
+<div class="space-y-4 pt-2">
+<div class="flex justify-between items-end">
+<span class="text-3xl font-extrabold">1.5</span>
+<span class="text-sm font-semibold text-slate-500">Liter</span>
+</div>
+<div class="grid grid-cols-5 gap-2">
+<div class="h-10 bg-blue-500 rounded-lg"></div>
+<div class="h-10 bg-blue-500 rounded-lg"></div>
+<div class="h-10 bg-blue-500 rounded-lg"></div>
+<div class="h-10 bg-blue-200 dark:bg-blue-900/40 rounded-lg"></div>
+<div class="h-10 bg-blue-200 dark:bg-blue-900/40 rounded-lg"></div>
+</div>
+<p class="text-xs text-slate-400">Tersisa 0.5L untuk hari ini</p>
+</div>
+</div>
+</div>
+<!-- Last Activity Section -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-bold">Aktivitas Terakhir</h2>
+<button class="text-primary text-sm font-bold hover:underline">Lihat Semua</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons-round">directions_run</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold">Lari Pagi</h4>
+<p class="text-sm text-slate-500">3.2 km • 25 menit</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-slate-800 dark:text-white">07:15</p>
+<p class="text-xs text-slate-400">WIB</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-500">
+<span class="material-icons-round">restaurant</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold">Sarapan Sehat</h4>
+<p class="text-sm text-slate-500">Oatmeal &amp; Pisang • 320 kcal</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-slate-800 dark:text-white">08:30</p>
+<p class="text-xs text-slate-400">WIB</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
+<span class="material-icons-round">water_drop</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold">Minum Air</h4>
+<p class="text-sm text-slate-500">Gelas ke-3 • 500 ml</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-slate-800 dark:text-white">10:00</p>
+<p class="text-xs text-slate-400">WIB</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Quick Actions & Quote -->
+<div class="space-y-8">
+<!-- Quick Actions -->
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col gap-4">
+<h3 class="text-lg font-bold mb-2">Tindakan Cepat</h3>
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-primary text-white font-bold group hover:scale-[1.02] transition-transform">
+<div class="flex items-center gap-3">
+<span class="material-icons-round">add_circle</span>
+                            Mulai Aktivitas
+                        </div>
+<span class="material-icons-round opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-primary/10 text-primary font-bold group hover:bg-primary/20 transition-all">
+<div class="flex items-center gap-3">
+<span class="material-icons-round">history_edu</span>
+                            Catat Makan
+                        </div>
+<span class="material-icons-round opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</button>
+<div class="mt-6 p-4 rounded-xl border border-dashed border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/50">
+<div class="flex gap-3 mb-2">
+<span class="material-icons-round text-yellow-500 text-sm">tips_and_updates</span>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-tighter">Tips Hari Ini</p>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 italic">"Cobalah berjalan kaki selama 5 menit setiap 1 jam duduk untuk melancarkan sirkulasi."</p>
+</div>
+</div>
+<!-- Personal Progress Summary -->
+<div class="relative overflow-hidden p-6 rounded-2xl bg-gradient-to-br from-primary to-[#0f8e59] text-white">
+<div class="relative z-10">
+<p class="text-primary-foreground/80 text-sm font-medium">Progress Mingguan</p>
+<h4 class="text-2xl font-extrabold mt-1">Sangat Baik!</h4>
+<p class="text-white/80 text-sm mt-2 leading-relaxed">Kamu telah menyelesaikan 85% dari target aktivitas mingguanmu.</p>
+<div class="mt-6 flex gap-2">
+<div class="h-1 w-full bg-white/30 rounded-full overflow-hidden">
+<div class="h-full bg-white w-[85%]"></div>
+</div>
+</div>
+</div>
+<!-- Abstract pattern -->
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Motivational Quote -->
+<div class="text-center py-6">
+<p class="font-cursive text-2xl text-primary/80 dark:text-primary/60">
+                        "Setiap langkah kecil membawamu lebih dekat ke dirimu yang terbaik."
+                    </p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

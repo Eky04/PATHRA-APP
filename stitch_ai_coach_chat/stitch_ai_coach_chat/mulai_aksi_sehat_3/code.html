@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PATHRA - Pilih Jenis Olahraga</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d4a4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#10221d",
+                        "emerald-deep": "#064e3b",
+                        "sage-soft": "#e1edeb",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-icons-round">auto_awesome</span>
+</div>
+<span class="text-2xl font-bold tracking-tight text-emerald-deep dark:text-primary">PATHRA</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Beranda</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-semibold" href="#">Mulai</a>
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Statistik</a>
+<a class="text-slate-500 hover:text-primary transition-colors font-medium" href="#">Komunitas</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-icons-round text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="Profile Photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnKfN9krcTPlipz7ieHE2jdv25qKKruF18Wn15Wy9ZA-PTixK5HYWmKKDWXC8fy9LYgotssOXNe6WacbSMHo2PSQF3FmAcYdCsj-ZOJpgIDvnp6fhmk7hZkRwuQRo1Z3wcsAoP9fYdVZ8fP3DZeJTCuCNR5DXcf_E4eK4aHuT5Xd5Dfc3pxRI29xTJ0sy_pyAWhOrfPuSt0tJ4KghJMXfZBW8guEF-3WSuKJe3ckJsUp93e7k5OzYNzX0y6yQSJiwY-ZcZKceIKwY"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-slate-400 text-sm mb-4">
+<a class="hover:text-primary" href="#">Mulai</a>
+<span class="material-icons-round text-xs">chevron_right</span>
+<span class="text-emerald-deep dark:text-primary font-medium">Pilih Olahraga</span>
+</nav>
+<h1 class="text-4xl font-extrabold text-emerald-deep dark:text-white">Pilih Jenis Olahraga</h1>
+</div>
+</header>
+<section class="mb-12">
+<div class="bg-sage-soft dark:bg-emerald-900/20 rounded-3xl p-8 border border-emerald-100 dark:border-emerald-800/30 flex flex-col md:flex-row items-center gap-8">
+<div class="bg-white dark:bg-emerald-800/40 p-6 rounded-2xl shadow-sm">
+<span class="material-symbols-outlined text-5xl text-primary">self_improvement</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-icons-round text-primary text-sm">psychology</span>
+<span class="text-xs font-bold text-emerald-deep/60 dark:text-primary/60 uppercase tracking-widest">Saran AI Berdasarkan Energimu</span>
+</div>
+<h2 class="text-2xl font-bold text-emerald-deep dark:text-white mb-2">Yoga Aliran Lembut</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-xl">
+                        Tingkat energimu terdeteksi <span class="text-amber-600 font-bold">Rendah</span> hari ini. Sesi yoga 15 menit akan membantu melancarkan sirkulasi tanpa membebani tubuh.
+                    </p>
+</div>
+<button class="bg-emerald-deep text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all flex items-center gap-2 shadow-lg shadow-emerald-900/20">
+                    Mulai Sekarang
+                    <span class="material-icons-round">play_arrow</span>
+</button>
+</div>
+</section>
+<section class="mb-8 space-y-6">
+<div class="relative max-w-2xl">
+<span class="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-12 pr-6 py-4 rounded-2xl border-none bg-white dark:bg-white/5 shadow-sm focus:ring-2 focus:ring-primary transition-all" placeholder="Cari 50+ jenis olahraga..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2 rounded-full bg-emerald-deep text-white font-semibold text-sm">Semua</button>
+<button class="px-6 py-2 rounded-full bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-white/10 hover:border-primary transition-colors font-semibold text-sm">Kardio</button>
+<button class="px-6 py-2 rounded-full bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-white/10 hover:border-primary transition-colors font-semibold text-sm">Kekuatan</button>
+<button class="px-6 py-2 rounded-full bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-white/10 hover:border-primary transition-colors font-semibold text-sm">Fleksibilitas</button>
+<button class="px-6 py-2 rounded-full bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-white/10 hover:border-primary transition-colors font-semibold text-sm">Meditasi</button>
+</div>
+</section>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-20">
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">directions_run</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">Lari</h3>
+<p class="text-xs text-slate-500">Outdoor/Treadmill</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">directions_bike</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">Bersepeda</h3>
+<p class="text-xs text-slate-500">Statis/Jalanan</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">pool</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">Berenang</h3>
+<p class="text-xs text-slate-500">Kolam/Perairan Terbuka</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">HIIT</h3>
+<p class="text-xs text-slate-500">Intensitas Tinggi</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 border-primary shadow-lg shadow-primary/5 text-left flex flex-col h-full ring-1 ring-primary">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white mb-4">
+<span class="material-symbols-outlined">self_improvement</span>
+</div>
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-emerald-deep dark:text-white">Yoga</h3>
+<span class="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full font-bold">DISARANKAN</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Hatha/Vinyasa/Restoratif</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">accessibility_new</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">Pilates</h3>
+<p class="text-xs text-slate-500">Matras/Reformasi</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">fitness_center</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">Angkat Beban</h3>
+<p class="text-xs text-slate-500">Gimnasium/Rumah</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">directions_walk</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">Jalan Kaki</h3>
+<p class="text-xs text-slate-500">Santai/Cepat</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">sports_tennis</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">Bulu Tangkis</h3>
+<p class="text-xs text-slate-500">Raket &amp; Kok</p>
+</button>
+<button class="group bg-white dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/10 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 text-left flex flex-col h-full">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">sports_basketball</span>
+</div>
+<h3 class="font-bold text-emerald-deep dark:text-white mb-1">Basket</h3>
+<p class="text-xs text-slate-500">Tim/Latihan</p>
+</button>
+<div class="col-span-full py-12 flex flex-col items-center justify-center border-2 border-dashed border-slate-200 dark:border-white/10 rounded-3xl">
+<p class="text-slate-500 mb-4">Ingin melihat 40+ opsi olahraga lainnya?</p>
+<button class="text-primary font-bold hover:underline flex items-center gap-2">
+                    Tampilkan Semua Pilihan
+                    <span class="material-icons-round">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-slate-100 dark:border-white/10 px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">home</span>
+<span class="text-[10px] font-bold">Beranda</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">add_circle</span>
+<span class="text-[10px] font-bold">Mulai</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">bar_chart</span>
+<span class="text-[10px] font-bold">Statistik</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">person</span>
+<span class="text-[10px] font-bold">Profil</span>
+</button>
+</div>
+
+</body></html>

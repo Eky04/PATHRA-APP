@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PATHRA - Kamera Pemindai Makanan AI</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#14b8a6", // Teal-500
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-rounded {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .shutter-glow {
+        box-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
+      }
+      .bounding-box-glow {
+        box-shadow: inset 0 0 10px rgba(20, 184, 166, 0.3), 0 0 10px rgba(20, 184, 166, 0.3);
+      }
+      .glass-card {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-hidden flex flex-col items-center justify-center transition-colors duration-300">
+<div class="relative w-full max-w-md h-[800px] bg-black rounded-[3rem] shadow-2xl overflow-hidden border-[12px] border-slate-200 dark:border-slate-800">
+<div class="absolute top-0 w-full h-10 flex justify-between items-center px-10 z-50">
+<span class="text-white text-xs font-semibold">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-symbols-rounded text-white text-[14px]">signal_cellular_alt</span>
+<span class="material-symbols-rounded text-white text-[14px]">wifi</span>
+<span class="material-symbols-rounded text-white text-[14px]">battery_full</span>
+</div>
+</div>
+<div class="relative w-full h-full bg-slate-900 overflow-hidden">
+<img alt="Salad Ayam Panggang" class="absolute inset-0 w-full h-full object-cover opacity-90 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuNImVZEf-wxDR3stXD-RgaYuDxnzWec-GEUafRysrEOOkS3FzpmUcSmrx-xXHlNR_63F8IUJeNIdPIbiKQP9KmDmk3XHRsQqODMYIY2vc3fZaBSKZUGORUF9IIlk00JxDcttSstRjeZWgdmgzHza4Vpk73j_wl5PnNXAZhyRwuQhUhtPzWdM6qQsmuFrGSSxZnhxiCDs1qrIhDfQIgZgcgZxLGiBMPx_3PQRaPHDQoKBsBzSbYaZuEyIRRRZxZRJ_4Q7j0y-_BCw"/>
+<div class="absolute top-12 left-0 right-0 px-6 flex justify-between items-center z-40">
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card text-white hover:bg-slate-800 transition-colors">
+<span class="material-symbols-rounded">close</span>
+</button>
+<div class="px-4 py-2 glass-card rounded-full flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-white text-xs font-medium uppercase tracking-wider">AI Live Scanning</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card text-white hover:bg-slate-800 transition-colors">
+<span class="material-symbols-rounded">help</span>
+</button>
+</div>
+<div class="absolute top-[35%] left-[25%] w-32 h-24 z-30">
+<div class="absolute -top-8 left-0">
+<div class="bg-primary text-white text-[10px] px-2 py-1 rounded-full flex items-center gap-1 font-bold shadow-lg">
+<span class="material-symbols-rounded text-[12px] fill-current">check_circle</span>
+                        AYAM PANGGANG (150g)
+                    </div>
+</div>
+<div class="w-full h-full border-2 border-primary rounded-xl bounding-box-glow bg-primary/10 transition-all"></div>
+</div>
+<div class="absolute top-[55%] left-[15%] w-24 h-24 z-30">
+<div class="absolute -top-7 left-0">
+<div class="bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-[10px] px-2 py-0.5 rounded-full border border-primary/30 font-semibold">
+                        SAYUR KALE
+                    </div>
+</div>
+<div class="w-full h-full border border-primary/60 rounded-xl bg-primary/5 transition-all"></div>
+</div>
+<div class="absolute top-[48%] right-[20%] w-16 h-16 z-30">
+<div class="absolute -top-7 right-0">
+<div class="bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-[10px] px-2 py-0.5 rounded-full border border-primary/30 font-semibold whitespace-nowrap">
+                        TOMAT CHERRY
+                    </div>
+</div>
+<div class="w-full h-full border border-primary/60 rounded-xl bg-primary/5 transition-all"></div>
+</div>
+<div class="absolute bottom-40 left-0 right-0 flex justify-center px-8 z-40">
+<div class="w-full glass-card py-4 px-6 rounded-3xl flex items-center gap-4 border border-white/10">
+<div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+<span class="material-symbols-rounded text-primary text-2xl">restaurant</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white/60 text-[10px] uppercase font-bold tracking-widest">Terdeteksi:</span>
+<span class="text-white text-lg font-semibold">Salad Ayam Panggang</span>
+</div>
+<div class="ml-auto">
+<span class="material-symbols-rounded text-primary animate-spin">sync</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/80 to-transparent flex items-center justify-between px-10 pb-4 z-50">
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-rounded text-3xl">image</span>
+</button>
+<div class="relative group">
+<div class="absolute -inset-2 bg-primary/30 rounded-full blur group-hover:bg-primary/50 transition-all"></div>
+<button class="relative w-20 h-20 bg-primary rounded-full flex items-center justify-center shutter-glow active:scale-95 transition-transform">
+<div class="w-[72px] h-[72px] border-4 border-white/30 rounded-full flex items-center justify-center">
+<div class="w-14 h-14 bg-white/20 rounded-full"></div>
+</div>
+</button>
+</div>
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-rounded text-3xl">flash_on</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-white/30 rounded-full z-50"></div>
+</div>
+</div>
+<div class="mt-8 text-center max-w-sm hidden md:block">
+<h2 class="text-xl font-bold mb-2">PATHRA: Food AI</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm">
+            Pantau nutrisi harian Anda secara otomatis dengan teknologi pemindai visual AI kami. 
+            Arahkan kamera ke makanan Anda dan biarkan PATHRA bekerja.
+        </p>
+<div class="mt-6 flex justify-center gap-4">
+<button class="p-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 flex items-center gap-2 text-sm font-medium" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-rounded text-[20px]">dark_mode</span>
+                Ganti Tema
+            </button>
+</div>
+</div>
+
+</body></html>

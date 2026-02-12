@@ -1,0 +1,301 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model achievements {
+  id                Int                 @id @default(autoincrement())
+  title             String
+  description       String?
+  icon              String?
+  criteria          String?
+  created_at        DateTime            @default(now())
+  user_achievements user_achievements[]
+}
+
+model activity_logs {
+  id              Int      @id @default(autoincrement())
+  user_id         Int
+  activity_type   String
+  duration        Int      @default(0)
+  calories_burned Int      @default(0)
+  distance        Decimal? @db.Decimal(6, 2)
+  avg_heart_rate  Int?
+  logged_at       DateTime
+  created_at      DateTime @default(now())
+  users           users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([activity_type])
+  @@index([user_id, logged_at])
+}
+
+model body_metrics {
+  id              Int      @id @default(autoincrement())
+  user_id         Int
+  weight          Decimal? @db.Decimal(5, 2)
+  bmi             Decimal? @db.Decimal(4, 1)
+  body_fat        Decimal? @db.Decimal(4, 1)
+  muscle_mass     Decimal? @db.Decimal(5, 2)
+  weight_target   Decimal? @db.Decimal(5, 2)
+  bmi_target      Decimal? @db.Decimal(4, 1)
+  body_fat_target Decimal? @db.Decimal(4, 1)
+  muscle_target   Decimal? @db.Decimal(5, 2)
+  recorded_at     DateTime @db.Date
+  created_at      DateTime @default(now())
+  users           users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id, recorded_at])
+}
+
+model challenge_participants {
+  id           Int        @id @default(autoincrement())
+  challenge_id Int
+  user_id      Int
+  progress     Int        @default(0)
+  joined_at    DateTime   @default(now())
+  challenges   challenges @relation(fields: [challenge_id], references: [id], onDelete: Cascade)
+  users        users      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([challenge_id, user_id])
+}
+
+model challenges {
+  id                     Int                      @id @default(autoincrement())
+  title                  String
+  description            String?
+  icon                   String?
+  start_date             DateTime                 @db.Date
+  end_date               DateTime                 @db.Date
+  created_by             Int?
+  created_at             DateTime                 @default(now())
+  challenge_participants challenge_participants[]
+  users                  users?                   @relation(fields: [created_by], references: [id])
+
+  @@index([created_by])
+  @@index([start_date, end_date])
+}
+
+model coach_conversations {
+  id             Int              @id @default(autoincrement())
+  user_id        Int
+  started_at     DateTime         @default(now())
+  users          users            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  coach_messages coach_messages[]
+
+  @@index([user_id])
+}
+
+model coach_messages {
+  id                  Int                        @id @default(autoincrement())
+  conversation_id     Int
+  sender_type         coach_messages_sender_type
+  content             String
+  created_at          DateTime                   @default(now())
+  coach_conversations coach_conversations        @relation(fields: [conversation_id], references: [id], onDelete: Cascade)
+
+  @@index([conversation_id, created_at])
+}
+
+model community_posts {
+  id             Int             @id @default(autoincrement())
+  user_id        Int
+  content        String
+  image_url      String?
+  likes_count    Int             @default(0)
+  comments_count Int             @default(0)
+  created_at     DateTime        @default(now())
+  updated_at     DateTime        @default(now())
+  users          users           @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  post_comments  post_comments[]
+  post_likes     post_likes[]
+
+  @@index([created_at])
+  @@index([user_id])
+}
+
+model daily_stats {
+  id                      Int      @id @default(autoincrement())
+  user_id                 Int
+  stat_date               DateTime @db.Date
+  total_calories_consumed Int      @default(0)
+  total_calories_burned   Int      @default(0)
+  total_steps             Int      @default(0)
+  total_water_ml          Int      @default(0)
+  total_activities        Int      @default(0)
+  total_protein           Decimal  @default(0.00) @db.Decimal(6, 2)
+  total_carbs             Decimal  @default(0.00) @db.Decimal(6, 2)
+  total_fat               Decimal  @default(0.00) @db.Decimal(6, 2)
+  created_at              DateTime @default(now())
+  updated_at              DateTime @default(now())
+  users                   users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, stat_date])
+}
+
+model food_items {
+  id         Int         @id @default(autoincrement())
+  name       String
+  calories   Int         @default(0)
+  protein    Decimal     @default(0.00) @db.Decimal(6, 2)
+  carbs      Decimal     @default(0.00) @db.Decimal(6, 2)
+  fat        Decimal     @default(0.00) @db.Decimal(6, 2)
+  portion    String?
+  image      String?
+  category   String?
+  is_popular Boolean     @default(false)
+  created_at DateTime    @default(now())
+  food_logs  food_logs[]
+
+  @@index([name])
+  @@index([is_popular])
+}
+
+model food_logs {
+  id            Int                     @id @default(autoincrement())
+  user_id       Int
+  food_item_id  Int?
+  food_name     String
+  meal_category food_logs_meal_category @default(snack)
+  calories      Int                     @default(0)
+  protein       Decimal                 @default(0.00) @db.Decimal(6, 2)
+  carbs         Decimal                 @default(0.00) @db.Decimal(6, 2)
+  fat           Decimal                 @default(0.00) @db.Decimal(6, 2)
+  portion       String?
+  photo_url     String?
+  logged_at     DateTime
+  created_at    DateTime                @default(now())
+  food_items    food_items?             @relation(fields: [food_item_id], references: [id])
+  users         users                   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([food_item_id])
+  @@index([user_id, logged_at])
+}
+
+model leaderboard {
+  id             Int      @id @default(autoincrement())
+  user_id        Int      @unique
+  total_points   Int      @default(0)
+  current_streak Int      @default(0)
+  longest_streak Int      @default(0)
+  updated_at     DateTime @default(now())
+  users          users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([total_points(sort: Desc)])
+}
+
+model post_comments {
+  id              Int             @id @default(autoincrement())
+  post_id         Int
+  user_id         Int
+  content         String
+  created_at      DateTime        @default(now())
+  community_posts community_posts @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  users           users           @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id])
+  @@index([post_id])
+}
+
+model post_likes {
+  id              Int             @id @default(autoincrement())
+  post_id         Int
+  user_id         Int
+  created_at      DateTime        @default(now())
+  community_posts community_posts @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  users           users           @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([post_id, user_id])
+  @@index([user_id])
+}
+
+model user_achievements {
+  id             Int          @id @default(autoincrement())
+  user_id        Int
+  achievement_id Int
+  unlocked_at    DateTime     @default(now())
+  achievements   achievements @relation(fields: [achievement_id], references: [id], onDelete: Cascade)
+  users          users        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, achievement_id])
+  @@index([achievement_id])
+}
+
+model user_profiles {
+  id                   Int      @id @default(autoincrement())
+  user_id              Int      @unique
+  daily_calorie_target Int      @default(2500)
+  daily_steps_target   Int      @default(10000)
+  daily_water_target   Int      @default(2000)
+  daily_protein_target Int      @default(100)
+  daily_carbs_target   Int      @default(300)
+  daily_fat_target     Int      @default(80)
+  age                  Int?
+  gender               String?
+  height               Decimal? @db.Decimal(5, 2)
+  weight               Decimal? @db.Decimal(5, 2)
+  favorite_sports      String?
+  health_motivation    String?
+  onboarding_completed Boolean  @default(false)
+  created_at           DateTime @default(now())
+  updated_at           DateTime @default(now())
+  users                users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model users {
+  id                     Int                      @id @default(autoincrement())
+  username               String                   @unique
+  password               String
+  name                   String
+  email                  String                   @unique
+  avatar                 String?
+  role                   users_role               @default(user)
+  created_at             DateTime                 @default(now())
+  updated_at             DateTime                 @default(now())
+  activity_logs          activity_logs[]
+  body_metrics           body_metrics[]
+  challenge_participants challenge_participants[]
+  challenges             challenges[]
+  coach_conversations    coach_conversations[]
+  community_posts        community_posts[]
+  daily_stats            daily_stats[]
+  food_logs              food_logs[]
+  leaderboard            leaderboard?
+  post_comments          post_comments[]
+  post_likes             post_likes[]
+  user_achievements      user_achievements[]
+  user_profiles          user_profiles?
+  water_logs             water_logs[]
+}
+
+model water_logs {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  amount     Int
+  logged_at  DateTime
+  created_at DateTime @default(now())
+  users      users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id, logged_at])
+}
+
+enum coach_messages_sender_type {
+  user
+  ai
+}
+
+enum food_logs_meal_category {
+  sarapan
+  makan_siang
+  makan_malam
+  snack
+}
+
+enum users_role {
+  admin
+  user
+}
