@@ -708,8 +708,8 @@ export function Onboarding({ onComplete }: OnboardingProps) {
               {/* Character Illustration */}
               <div className="w-64 h-80 relative">
                 <img
-                  src="https://placehold.co/300x400/transparent/png?text=Woman+Eating+Salad"
-                  alt="Woman Eating Salad"
+                  src={gender === 'male' ? '/images/gender-male.png' : '/images/gender-female.png'}
+                  alt="Your Avatar"
                   className="w-full h-full object-contain"
                 />
               </div>
