@@ -37,9 +37,8 @@ export async function POST(req: NextRequest) {
 
         // List of models to try in order of preference (using available models from list)
         const modelsToTry = [
-            'gemini-2.0-flash',
             'gemini-flash-latest',
-            'gemini-2.0-flash-lite-001'
+            'gemini-2.0-flash'
         ];
 
         let lastError;
