@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, ChevronLeft, Check, Lock } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Check, Lock, ChevronUp, ChevronDown } from 'lucide-react';
 
 interface OnboardingProps {
   onComplete: () => void;
@@ -353,13 +353,14 @@ export function Onboarding({ onComplete }: OnboardingProps) {
           )}
 
           {/* Height Ruler UI */}
+          {/* Height Ruler UI */}
           {(currentStep as any).type === 'height' && (
             <div className="mt-6 flex gap-8 items-center justify-center">
-              {/* Avatar Placeholder */}
-              <div className="w-1/3 aspect-[1/3] relative">
+              {/* Dynamic Body Image based on Gender */}
+              <div className="w-1/3 aspect-[3/5] relative">
                 <img
-                  src="https://placehold.co/150x450/e2e8f0/1e293b?text=Body"
-                  alt="Body"
+                  src={gender === 'male' ? '/images/gender-male.png' : '/images/gender-female.png'}
+                  alt="Body Representation"
                   className="w-full h-full object-contain"
                 />
                 {/* Height line indicator */}
@@ -367,20 +368,30 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   className="absolute w-full border-t-2 border-primary border-dashed"
                   style={{ top: '30%' }}
                 >
-                  <span className="absolute -top-7 right-0 bg-primary text-white text-xs px-2 py-1 rounded-full">
+                  <span className="absolute -top-7 right-0 bg-primary text-white text-xs px-2 py-1 rounded-full whitespace-nowrap">
                     {height} cm
                   </span>
                 </div>
               </div>
 
-              {/* Simple Ruler Slider */}
-              <div className="h-64 flex flex-col items-center justify-center gap-4">
+              {/* Slider with Controls */}
+              <div className="h-80 flex flex-col items-center justify-center gap-2">
                 <div className="flex gap-2 bg-gray-100 p-1 rounded-lg mb-2">
                   <button className="px-4 py-1 bg-white shadow-sm rounded-md text-sm font-semibold text-primary">cm</button>
                   <button className="px-4 py-1 text-sm font-semibold text-muted-foreground">ft</button>
                 </div>
-                <div className="relative h-full w-16 bg-gray-50 rounded-2xl border-2 border-border overflow-hidden flex flex-col items-center py-4">
-                  {/* Using a range input rotated or simplified vertical list for demo */}
+
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full h-10 w-10 shrink-0"
+                  onClick={() => setHeight((h) => Math.min(220, h + 1))}
+                  type="button"
+                >
+                  <ChevronUp className="w-6 h-6" />
+                </Button>
+
+                <div className="relative h-full w-20 bg-gray-50 rounded-2xl border-2 border-border overflow-hidden flex flex-col items-center py-4 shrink">
                   <input
                     type="range"
                     min="100"
@@ -395,13 +406,23 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   {/* Custom Ruler Visuals */}
                   <div className="absolute inset-0 flex flex-col items-center justify-between py-2 pointer-events-none opacity-30">
                     {[...Array(20)].map((_, i) => (
-                      <div key={i} className={`w-8 h-0.5 ${i % 5 === 0 ? 'bg-primary w-12' : 'bg-gray-400'}`}></div>
+                      <div key={i} className={`w-10 h-0.5 ${i % 5 === 0 ? 'bg-primary w-14' : 'bg-gray-400'}`}></div>
                     ))}
                   </div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 text-3xl font-bold text-primary">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 text-4xl font-bold text-primary">
                     {height}
                   </div>
                 </div>
+
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full h-10 w-10 shrink-0"
+                  onClick={() => setHeight((h) => Math.max(100, h - 1))}
+                  type="button"
+                >
+                  <ChevronDown className="w-6 h-6" />
+                </Button>
               </div>
             </div>
           )}
