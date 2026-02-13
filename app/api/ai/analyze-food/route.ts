@@ -21,8 +21,8 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // Remove the data URL prefix if present (e.g., "data:image/jpeg;base64,")
-        const base64Image = image.replace(/^data:image\/(png|jpeg|jpg|webp);base64,/, '');
+        // Remove the data URL prefix if present (handle all image types)
+        const base64Image = image.replace(/^data:image\/[a-zA-Z]+;base64,/, '');
 
         const prompt = `Analyze this food image. Identify the type of food and estimate its nutritional content.
     Return ONLY a valid JSON object with the following structure (do not use Markdown code blocks):
@@ -35,11 +35,11 @@ export async function POST(req: NextRequest) {
       "portion": "Estimated portion size (e.g., 1 piring, 1 mangkuk, 100g)"
     }`;
 
-        // List of models to try in order of preference/stability
+        // List of models to try in order of preference (using available models from list)
         const modelsToTry = [
+            'gemini-2.0-flash',
             'gemini-flash-latest',
-            'gemini-2.0-flash-lite-001',
-            'gemini-2.0-flash'
+            'gemini-2.0-flash-lite-001'
         ];
 
         let lastError;
@@ -48,14 +48,14 @@ export async function POST(req: NextRequest) {
 
         for (const modelName of modelsToTry) {
             try {
-                console.log(`Attempting analysis with model: ${modelName}`);
+                // console.log(`Attempting analysis with model: ${modelName}`);
                 const model = genAI.getGenerativeModel({ model: modelName });
                 result = await model.generateContent([
                     prompt,
                     {
                         inlineData: {
                             data: base64Image,
-                            mimeType: 'image/jpeg',
+                            mimeType: 'image/jpeg', // Gemini supports auto-detection or generic image/jpeg often works for base64
                         },
                     },
                 ]);
@@ -75,8 +75,18 @@ export async function POST(req: NextRequest) {
         const response = await result.response;
         const text = response.text();
 
-        // Clean up the text to ensure it's valid JSON (sometimes models add markdown)
-        const cleanedText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+        // Clean up the text to ensure it's valid JSON
+        // Find the first '{' and last '}'
+        const firstOpen = text.indexOf('{');
+        const lastClose = text.lastIndexOf('}');
+
+        let cleanedText = text;
+        if (firstOpen !== -1 && lastClose !== -1) {
+            cleanedText = text.substring(firstOpen, lastClose + 1);
+        } else {
+            // Fallback cleanup if braces not found (unlikely)
+            cleanedText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+        }
 
         try {
             const foodData = JSON.parse(cleanedText);
@@ -84,7 +94,7 @@ export async function POST(req: NextRequest) {
         } catch (parseError) {
             console.error('Failed to parse AI response:', text);
             return NextResponse.json(
-                { error: 'Failed to parse AI analysis results' },
+                { error: 'Failed to parse AI analysis results. Raw: ' + text.substring(0, 100) },
                 { status: 500 }
             );
         }

@@ -288,12 +288,14 @@ export function FoodPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // console.log('File selected:', file.name, file.type, file.size);
     setIsAnalyzing(true);
 
     try {
       const reader = new FileReader();
       reader.onloadend = async () => {
         const base64String = reader.result as string;
+        // console.log('Base64 generated, sending to API...');
 
         const response = await fetch('/api/ai/analyze-food', {
           method: 'POST',
@@ -303,10 +305,12 @@ export function FoodPage() {
 
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({}));
-          throw new Error(errorData.error || 'Analysis failed');
+          console.error('API Error:', errorData);
+          throw new Error(errorData.error || `Server error: ${response.status}`);
         }
 
         const data = await response.json();
+        // console.log('Analysis result:', data);
 
         const foodItem: FoodItem = {
           id: Date.now().toString(),
@@ -322,10 +326,15 @@ export function FoodPage() {
 
         setSelectedFood(foodItem);
       };
+
+      reader.onerror = () => {
+        throw new Error('Failed to read file');
+      };
+
       reader.readAsDataURL(file);
     } catch (error: any) {
       console.error('Upload failed:', error);
-      alert(`Gagal memproses gambar: ${error.message}`);
+      alert(`Gagal memproses gambar: ${error.message}. Pastikan koneksi internet stabil.`);
     } finally {
       setIsAnalyzing(false);
       if (fileInputRef.current) fileInputRef.current.value = '';
