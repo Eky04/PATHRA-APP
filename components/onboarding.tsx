@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, ChevronLeft, Check, Lock, ChevronUp, ChevronDown } from 'lucide-react';
 
@@ -428,11 +428,31 @@ export function Onboarding({ onComplete }: OnboardingProps) {
           )}
 
           {/* Age Selection UI */}
+          {/* Age Selection UI */}
           {(currentStep as any).type === 'age' && (
             <div className="mt-8 flex flex-col items-center justify-center">
-              <div className="h-48 w-full overflow-y-auto snap-y snap-mandatory flex flex-col items-center gap-2 py-16 scrollbar-hide relative">
+              <div
+                className="h-48 w-full overflow-y-auto snap-y snap-mandatory flex flex-col items-center gap-0 py-[calc(6rem-2rem)] scrollbar-hide relative"
+                onScroll={(e) => {
+                  const container = e.currentTarget;
+                  const itemHeight = 48; // Fixed height per item (h-12)
+                  const centerOffset = container.clientHeight / 2;
+                  const scrollTop = container.scrollTop;
+
+                  // Calculate index based on scroll position + center offset
+                  // We want the item at the center of the view.
+                  // The first item starts at scrollTop = 0.
+                  // But we have padding.
+
+                  const index = Math.round(scrollTop / itemHeight);
+                  const newAge = index + 12;
+                  if (newAge !== age && newAge >= 12 && newAge < 12 + 80) {
+                    setAge(newAge);
+                  }
+                }}
+              >
                 {/* Selection Highlight Box */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-14 border-2 border-primary rounded-xl pointer-events-none z-10"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-12 border-y-2 border-primary/30 pointer-events-none z-10 bg-primary/5 rounded-lg"></div>
 
                 {[...Array(80)].map((_, i) => {
                   const val = i + 12; // Start from age 12
@@ -440,10 +460,13 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   return (
                     <button
                       key={val}
-                      onClick={() => setAge(val)}
-                      className={`snap-center shrink-0 w-full text-center transition-all duration-300 py-2 ${isSelected
-                        ? 'text-4xl font-bold text-primary scale-110'
-                        : 'text-xl text-gray-300 hover:text-gray-400'
+                      onClick={(e) => {
+                        setAge(val);
+                        e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }}
+                      className={`snap-center shrink-0 w-full h-12 flex items-center justify-center text-center transition-all duration-200 ${isSelected
+                        ? 'text-3xl font-bold text-primary'
+                        : 'text-xl text-gray-300'
                         }`}
                     >
                       {val}
