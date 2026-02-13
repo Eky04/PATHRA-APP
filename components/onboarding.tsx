@@ -112,12 +112,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
         {
           label: 'Laki-laki',
           value: 'male',
-          image: 'https://placehold.co/300x500/e2e8f0/1e293b?text=Laki-laki',
+          image: '/images/gender-male.png',
         },
         {
           label: 'Perempuan',
           value: 'female',
-          image: 'https://placehold.co/300x500/e2e8f0/1e293b?text=Perempuan',
+          image: '/images/gender-female.png',
         },
       ],
       type: 'selection',
