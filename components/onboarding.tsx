@@ -353,7 +353,6 @@ export function Onboarding({ onComplete }: OnboardingProps) {
           )}
 
           {/* Height Ruler UI */}
-          {/* Height Ruler UI */}
           {(currentStep as any).type === 'height' && (
             <div className="mt-6 flex gap-8 items-center justify-center">
               {/* Dynamic Body Image based on Gender */}
@@ -428,51 +427,46 @@ export function Onboarding({ onComplete }: OnboardingProps) {
           )}
 
           {/* Age Selection UI */}
-          {/* Age Selection UI */}
           {(currentStep as any).type === 'age' && (
             <div className="mt-8 flex flex-col items-center justify-center">
-              <div
-                className="h-48 w-full overflow-y-auto snap-y snap-mandatory flex flex-col items-center gap-0 py-[calc(6rem-2rem)] scrollbar-hide relative"
-                onScroll={(e) => {
-                  const container = e.currentTarget;
-                  const itemHeight = 48; // Fixed height per item (h-12)
-                  const centerOffset = container.clientHeight / 2;
-                  const scrollTop = container.scrollTop;
-
-                  // Calculate index based on scroll position + center offset
-                  // We want the item at the center of the view.
-                  // The first item starts at scrollTop = 0.
-                  // But we have padding.
-
-                  const index = Math.round(scrollTop / itemHeight);
-                  const newAge = index + 12;
-                  if (newAge !== age && newAge >= 12 && newAge < 12 + 80) {
-                    setAge(newAge);
-                  }
-                }}
-              >
-                {/* Selection Highlight Box */}
+              <div className="relative h-48 w-full">
+                {/* Selection Highlight Box - Fixed Position */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-12 border-y-2 border-primary/30 pointer-events-none z-10 bg-primary/5 rounded-lg"></div>
 
-                {[...Array(80)].map((_, i) => {
-                  const val = i + 12; // Start from age 12
-                  const isSelected = val === age;
-                  return (
-                    <button
-                      key={val}
-                      onClick={(e) => {
-                        setAge(val);
-                        e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      }}
-                      className={`snap-center shrink-0 w-full h-12 flex items-center justify-center text-center transition-all duration-200 ${isSelected
-                        ? 'text-3xl font-bold text-primary'
-                        : 'text-xl text-gray-300'
-                        }`}
-                    >
-                      {val}
-                    </button>
-                  );
-                })}
+                {/* Scrollable Container */}
+                <div
+                  className="absolute inset-0 w-full overflow-y-auto snap-y snap-mandatory flex flex-col items-center gap-0 py-[calc(6rem-1.5rem)] scrollbar-hide"
+                  onScroll={(e) => {
+                    const container = e.currentTarget;
+                    const itemHeight = 48; // h-12
+                    const scrollTop = container.scrollTop;
+                    const index = Math.round(scrollTop / itemHeight);
+                    const newAge = index + 12;
+                    if (newAge !== age && newAge >= 12 && newAge < 12 + 80) {
+                      setAge(newAge);
+                    }
+                  }}
+                >
+                  {[...Array(80)].map((_, i) => {
+                    const val = i + 12; // Start from age 12
+                    const isSelected = val === age;
+                    return (
+                      <button
+                        key={val}
+                        onClick={(e) => {
+                          setAge(val);
+                          e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }}
+                        className={`snap-center shrink-0 w-full h-12 flex items-center justify-center text-center transition-all duration-200 ${isSelected
+                          ? 'text-3xl font-bold text-primary'
+                          : 'text-xl text-gray-300'
+                          }`}
+                      >
+                        {val}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
               <p className="mt-4 text-muted-foreground font-medium">Tahun</p>
             </div>
