@@ -115,6 +115,7 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
             setLoginUsername(regUsername); // Pre-fill username
             setSuccess(''); // Clear success message from register tab
             setError('');
+            setIsLoading(false);
         }, 1500);
     };
 
