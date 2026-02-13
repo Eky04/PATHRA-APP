@@ -558,9 +558,29 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
               {/* Weight Input & Ruler */}
               <div className="w-full relative py-4">
-                <div className="text-center mb-2">
-                  <span className="text-5xl font-bold text-green-500">{weight.toFixed(1).replace('.', ',')}</span>
-                  <span className="text-xl font-medium text-gray-400 ml-1">{weightUnit}</span>
+                <div className="flex items-center justify-center gap-6 mb-4">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full h-12 w-12 shrink-0 border-2"
+                    onClick={() => setWeight((w) => Math.max(30, Number((w - 0.5).toFixed(1))))}
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </Button>
+
+                  <div className="text-center min-w-[120px]">
+                    <span className="text-5xl font-bold text-green-500">{weight.toFixed(1).replace('.', ',')}</span>
+                    <span className="text-xl font-medium text-gray-400 ml-1">{weightUnit}</span>
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full h-12 w-12 shrink-0 border-2"
+                    onClick={() => setWeight((w) => Math.min(150, Number((w + 0.5).toFixed(1))))}
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </Button>
                 </div>
 
                 <div className="relative w-full h-16 bg-gray-50 border-t border-b border-gray-200 overflow-hidden">
