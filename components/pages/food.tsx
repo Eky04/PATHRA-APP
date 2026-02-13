@@ -284,6 +284,39 @@ export function FoodPage() {
   const [showScanner, setShowScanner] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Image Resizer Utility
+  const resizeImage = (file: File, maxWidth = 800): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxWidth) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx?.drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL('image/jpeg', 0.8)); // Compress to JPEG 80%
+        };
+        img.onerror = (err) => reject(err);
+        img.src = event.target?.result as string;
+      };
+      reader.onerror = (err) => reject(err);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
+  const [errorReason, setErrorReason] = useState('');
+
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -292,46 +325,48 @@ export function FoodPage() {
     setIsAnalyzing(true);
 
     try {
-      const reader = new FileReader();
-      reader.onloadend = async () => {
-        const base64String = reader.result as string;
-        // console.log('Base64 generated, sending to API...');
+      // Resize image before sending
+      const base64String = await resizeImage(file);
+      // console.log('Resized image generated, sending to API...');
 
-        const response = await fetch('/api/ai/analyze-food', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: base64String }),
-        });
+      const response = await fetch('/api/ai/analyze-food', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: base64String }),
+      });
 
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          console.error('API Error:', errorData);
-          throw new Error(errorData.error || `Server error: ${response.status}`);
-        }
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('API Error:', errorData);
+        throw new Error(errorData.error || `Server error: ${response.status}`);
+      }
 
-        const data = await response.json();
-        // console.log('Analysis result:', data);
+      const data = await response.json();
 
-        const foodItem: FoodItem = {
-          id: Date.now().toString(),
-          name: data.name || 'Unknown Food',
-          calories: data.calories || 0,
-          protein: data.protein || 0,
-          carbs: data.carbs || 0,
-          fat: data.fat || 0,
-          portion: data.portion || '1 porsi',
-          image: base64String,
-          category: selectedCategory, // Auto-assign current category
-        };
+      // Handle unrecognized food error from AI
+      if (data.error === 'unrecognized') {
+        setErrorReason(data.message || 'Makanan tidak dapat dikenali.');
+        setErrorModalOpen(true);
+        setIsAnalyzing(false);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+        return;
+      }
 
-        setSelectedFood(foodItem);
+      // console.log('Analysis result:', data);
+
+      const foodItem: FoodItem = {
+        id: Date.now().toString(),
+        name: data.name || 'Unknown Food',
+        calories: data.calories || 0,
+        protein: data.protein || 0,
+        carbs: data.carbs || 0,
+        fat: data.fat || 0,
+        portion: data.portion || '1 porsi',
+        image: base64String,
+        category: selectedCategory, // Auto-assign current category
       };
 
-      reader.onerror = () => {
-        throw new Error('Failed to read file');
-      };
-
-      reader.readAsDataURL(file);
+      setSelectedFood(foodItem);
     } catch (error: any) {
       console.error('Upload failed:', error);
       alert(`Gagal memproses gambar: ${error.message}. Pastikan koneksi internet stabil.`);
@@ -367,6 +402,40 @@ export function FoodPage() {
         accept="image/*"
         className="hidden"
       />
+
+      {/* Error Modal for Unrecognized Food */}
+      {errorModalOpen && (
+        <div className="fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center animate-in zoom-in-95">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Camera size={32} className="text-red-500" />
+            </div>
+            <h3 className="text-xl font-bold text-foreground mb-2">Gagal Mengenali Makanan</h3>
+            <p className="text-gray-600 mb-6">
+              {errorReason}.<br />Silakan coba ambil foto ulang dengan pencahayaan yang lebih baik atau sudut yang berbeda.
+            </p>
+            <div className="flex gap-3">
+              <Button
+                variant="outline"
+                className="flex-1"
+                onClick={() => setErrorModalOpen(false)}
+              >
+                Tutup
+              </Button>
+              <Button
+                className="flex-1 bg-primary text-white"
+                onClick={() => {
+                  setErrorModalOpen(false);
+                  fileInputRef.current?.click();
+                }}
+              >
+                <Camera size={16} className="mr-2" />
+                Foto Ulang
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Toast Notification */}
       {showToast && (
@@ -603,7 +672,7 @@ export function FoodPage() {
                       e.stopPropagation();
                       quickAdd(food);
                     }}
-                    className="bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors h-10 w-10 p-0 rounded-full shadow-sm"
+                    className="bg-primary/10 text-primary hover:bg-primary/text-white transition-colors h-10 w-10 p-0 rounded-full shadow-sm"
                     size="sm"
                     title="Quick Add"
                   >

@@ -25,7 +25,11 @@ export async function POST(req: NextRequest) {
         const base64Image = image.replace(/^data:image\/[a-zA-Z]+;base64,/, '');
 
         const prompt = `Analyze this food image. Identify the type of food and estimate its nutritional content.
-    Return ONLY a valid JSON object with the following structure (do not use Markdown code blocks):
+    
+    If the image is NOT food, or is too blurry, or contains multiple stacked foods that are impossible to distinguish, return this JSON:
+    { "error": "unrecognized", "message": "Brief reason why (e.g., 'Gambar terlalu buram' or 'Bukan makanan')" }
+
+    Otherwise, return a valid JSON object with this structure:
     {
       "name": "Food Name (in Indonesian)",
       "calories": number (approximate calories),
@@ -33,7 +37,9 @@ export async function POST(req: NextRequest) {
       "carbs": number (grams),
       "fat": number (grams),
       "portion": "Estimated portion size (e.g., 1 piring, 1 mangkuk, 100g)"
-    }`;
+    }
+    
+    Do not use Markdown code blocks. Return only raw JSON.`;
 
         // List of models to try in order of preference (using available models from list)
         const modelsToTry = [
